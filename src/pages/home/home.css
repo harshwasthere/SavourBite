@@ -1,0 +1,137 @@
+.home {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-mint);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-logo {
+    font-family: "virgil";
+    font-size: 3rem;
+    margin: 1rem 0rem;
+}
+
+.home-body {
+    display: flex;
+    align-items: center;
+}
+
+.home-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 32rem;
+    gap: 2rem;
+    align-items: center;
+    margin: 2rem 3rem;
+}
+
+.home-text {
+    color: var(--color-light);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.home-text > span {
+    font-size: 1rem;
+}
+
+.home-text > span:first-child {
+    font-size: 2rem;
+}
+
+.home-text > span > span {
+    color: blueviolet;
+}
+
+.primary-btn {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: var(--color-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background-color: var(--color-darker);
+}
+
+.primary-btn:active {
+    background-color: var(--color-light);
+}
+
+.primary-search > label > input {
+    outline: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-right: 0.2rem;
+}
+
+.primary-search > label > input:active {
+    outline: 1px solid var(--color-light);
+}
+
+.search-size {
+    font-size: small;
+    padding: 0.5rem 1rem !important;
+}
+
+.home-illustration > img {
+    height: 15rem;
+    width: 15rem;
+    margin-right: 3rem;
+}
+
+.home-footer {
+    font-family: "untitled-sans";
+    margin: 1rem 0rem;
+}
+
+/* ----------------------- MEDIA QUERIES FOR RESPONSIVENESS -----------------*/
+
+/* Small devices ( 670px and down) */
+@media only screen and (max-width: 670px) {
+    .home-body {
+        flex-direction: column;
+    }
+
+    .home-logo {
+        font-size: 2rem;
+    }
+
+    .home-footer {
+        font-size: small;
+    }
+
+    .home-illustration > img {
+        margin-right: 0rem;
+    }
+}
+
+/* large devices ( 1030px and up) */
+@media only screen and (min-width: 1080px) {
+    .search-size {
+        font-size: large;
+        padding: 0.8rem 1.2rem !important;
+    }
+
+    .home-illustration > img {
+        height: 25rem;
+        width: 25rem;
+        margin-right: 3rem;
+    }
+
+    .home-text > span {
+        font-size: 2rem;
+    }
+
+    .home-text > span:first-child {
+        font-size: 3.5rem;
+    }
+}

@@ -1,0 +1,92 @@
+:root {
+    --green-lighter: #e3fcbf;
+    --green-light: #b8f1b0;
+    --green-dark: #00ffab;
+    --green-darker: #14c38e;
+    --background-mint: #9effa9;
+    --color-light: #36485e;
+    --color-dark: #333146;
+    --color-darker: #29252c;
+    --grey-lighter: #f4f4f4;
+    --grey-light-mid: #eeeeee;
+    --grey-light: #eaeaea;
+    --grey-normal: #b2b2b2;
+    --black-perfect: #3c3c3c;
+}
+
+@font-face {
+    font-family: "virgil";
+    src: url("./src/assets/fonts/Virgil.woff2") format("woff2");
+    font-weight: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "untitled-sans";
+    src: url("./src/assets/fonts/Untitled Sans Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-weight: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "untitled-sans", sans-serif;
+    margin: 0%;
+    padding: 0%;
+}
+
+.app {
+    height: 100%;
+    width: 100%;
+}
+
+/* 
+*   MULTI USE COMPONENT CSS 
+*/
+
+/* .home-logo {
+    font-family: "virgil";
+    font-size: 3rem;
+    margin: 1rem 0rem;
+} */
+
+/* .home-footer {
+    font-family: "untitled-sans";
+    margin: 1rem 0rem;
+} */
+
+/* .primary-btn {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: var(--color-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+.primary-btn:hover {
+    background-color: var(--color-darker);
+}
+.primary-btn:active {
+    background-color: var(--color-light);
+}
+
+.primary-search > label > input {
+    outline: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-right: 0.2rem;
+}
+
+.primary-search > label > input:active {
+    outline: 1px solid var(--color-light);
+}
+
+.search-large {
+    font-size: large;
+    padding: 0.8rem 1.2rem !important;
+}
+
+.search-small {
+    padding: 0.5rem 1rem !important;
+} */

@@ -1,0 +1,67 @@
+.shimmer-card {
+    display: flex;
+    flex-direction: column;
+    width: 19rem;
+    padding: 0.8rem;
+    margin: 0.5rem;
+    height: 100%;
+    max-height: 24.2rem;
+    color: var(--green-light);
+    background-color: var(--grey-normal);
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.shimmer-img {
+    background-color: var(--green-light);
+    width: 100%;
+    max-width: 19rem;
+    height: 13rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.shimmer-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.shimmer-name {
+    background-color: var(--green-light);
+    height: 1.2rem;
+}
+
+.shimmer-details > .shimmer-cuisine {
+    background-color: var(--green-light);
+    height: 0.92rem;
+    font-size: small;
+}
+
+.shimmer-features {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: small;
+}
+
+.shimmer-rating {
+    width: 2.077rem;
+    height: 0.92rem;
+    background-color: var(--green-light);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.shimmer-delivery-time {
+    background-color: var(--green-light);
+    height: 0.92rem;
+    width: 2.077rem;
+    border-radius: 4px;
+}

@@ -1,0 +1,147 @@
+.square-card {
+    display: flex;
+    flex-direction: column;
+    width: 19rem;
+    padding: 0.8rem;
+    margin: 0.5rem;
+    color: var(--green-lighter);
+    background-color: var(--black-perfect);
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 0.3s;
+}
+
+.square-card:hover {
+    background-color: var(--color-darker);
+    color: var(--green-light);
+}
+
+.square-image {
+    width: 100%;
+    max-width: 19rem;
+    height: 13rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.square-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.5s ease;
+    filter: brightness(70%);
+}
+
+.square-image:hover > img {
+    transform: scale(1.1);
+    filter: brightness(90%);
+}
+
+.square-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.square-details > .square-cuisine {
+    font-size: small;
+    color: var(--grey-normal);
+}
+
+.square-features {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: small;
+}
+
+.square-rating {
+    background-color: var(--grey-light-mid);
+    color: var(--color-darker);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.square-rating > img {
+    margin-left: 0.2rem;
+    height: 0.75rem;
+    width: 0.75rem;
+}
+
+/*
+*   OLD COMPONENTS
+*/
+
+/* .res-card {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 18.75rem;
+    border: solid 1px #bababa;
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+} */
+
+/* .res-img {
+    width: 100%;
+    max-width: 19rem;
+    height: 13rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    border-radius: 8px;
+} */
+
+/* .res-img > img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+} */
+
+/* .res-img:hover > img {
+    transform: scale(1.1);
+} */
+
+/* .res-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+} */
+
+/* .res-details > .res-cuisine {
+    font-size: small;
+    color: grey;
+}
+
+.res-features {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: small;
+}
+
+.res-rating {
+    background-color: lightgreen;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.res-rating > img {
+    margin-left: 0.2rem;
+    height: 0.75rem;
+    width: 0.75rem;
+} */

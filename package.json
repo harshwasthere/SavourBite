@@ -1,0 +1,22 @@
+{
+    "name": "khanakhoj",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "parcel index.html",
+        "build": "parcel build index.html"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "lucide-react": "^0.307.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.21.1"
+    },
+    "devDependencies": {
+        "parcel": "^2.11.0",
+        "process": "^0.11.10"
+    }
+}

@@ -21,7 +21,7 @@ import Accordion from "./components/accordion/Accordion.jsx";
 const App = () => {
     return (
         <div className="app">
-            <Home/>
+            <RestaurantMenu/>
         </div>
     );
 };

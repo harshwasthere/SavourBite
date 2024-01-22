@@ -1,0 +1,19 @@
+.menu {
+    max-width: 53rem;
+    margin: 0rem auto;
+    padding: 2rem 1rem;
+}
+
+.menu-heading {
+    margin: 1rem 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.menu-heading-title {
+    font-weight: bold;
+}
+
+.menu-separator {
+    height: 1rem;
+    border-bottom: 1rem solid var(--grey-light);
+}

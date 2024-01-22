@@ -1,7 +1,20 @@
-.menu {
+.restaurant-menu {
+    width: 100%;
+    background-color: var(--green-lighter);
+}
+
+.restaurant-subpage {
     max-width: 53rem;
     margin: 0rem auto;
     padding: 2rem 1rem;
+}
+
+.restaurant-subpage-header {
+    margin-bottom: 3rem;
+}
+
+.menu {
+    width: 100%;
 }
 
 .menu-heading {
@@ -15,5 +28,17 @@
 
 .menu-separator {
     height: 1rem;
-    border-bottom: 1rem solid var(--grey-light);
+    border-bottom: 1rem solid var(--color-lighter);
+}
+
+.menu-main-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0rems;
+    margin-bottom: 2rem;
+}
+
+.menu-main-title > span {
+    font-size: large;
 }

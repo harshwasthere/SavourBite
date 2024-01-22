@@ -12,7 +12,6 @@ import Contact from "./pages/contact/Contact.jsx";
 import About from "./pages/about/About.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import RestaurantMenu from "./pages/restaurantMenu/RestaurantMenu.jsx";
-import Accordion from "./components/accordion/Accordion.jsx";
 
 /*
  * APP COMPONENTS
@@ -21,7 +20,7 @@ import Accordion from "./components/accordion/Accordion.jsx";
 const App = () => {
     return (
         <div className="app">
-            <RestaurantMenu/>
+            <Home />
         </div>
     );
 };

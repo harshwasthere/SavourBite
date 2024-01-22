@@ -16,12 +16,13 @@ export default function Accordion(props) {
             setToggled([...toggled, index]);
         }
     };
+    const totalItemCards = card?.itemCards?.length;
 
     return (
         <div className="accordion-subclass">
             <div className="accordion-bar" onClick={() => handleToggle(index)}>
                 <span className={isSubCard ? "sub-title" : "accordion-bar-title"}>
-                    {card.title}
+                    {`${card.title} (${totalItemCards})`}
                 </span>
                 {toggled.includes(index) ? <ChevronUp /> : <ChevronDown />}
             </div>
@@ -34,7 +35,7 @@ export default function Accordion(props) {
                         className={`accordion-dishes ${toggled.includes(index) ? "open" : "close"}`}
                     >
                         <AccordionItem data={dishData} />
-                        {dishIndex !== card.itemCards.length && (
+                        {dishIndex !== card.itemCards.length - 1 && (
                             <div className="accordion-dishes-breaker"></div>
                         )}
                     </div>

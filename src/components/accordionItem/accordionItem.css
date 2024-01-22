@@ -32,7 +32,7 @@
 }
 
 .acc-item-detail {
-    color: var(--grey-normal);
+    color: var(--color-light);
     font-size: 0.8rem;
     margin-top: 0.875rem;
 }

@@ -1,5 +1,5 @@
 .accordion-dishes-breaker {
-    border-bottom: 0.5px solid var(--grey-light);
+    border-bottom: 0.5px solid var(--color-lighter);
     width: 95%;
     margin: 0 auto;
 }
@@ -32,9 +32,9 @@
 
 .accordion-separator {
     height: 1rem;
-    border-bottom: 1rem solid var(--grey-light);
+    border-bottom: 1rem solid var(--color-lighter);
 }
 
 .sub-separator {
-    border-bottom: 0.5px solid var(--grey-light);
+    border-bottom: 0.5px solid var(--color-lighter);
 }

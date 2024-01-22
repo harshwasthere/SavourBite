@@ -1,0 +1,40 @@
+.accordion-dishes-breaker {
+    border-bottom: 0.5px solid var(--grey-light);
+    width: 95%;
+    margin: 0 auto;
+}
+
+.accordion-bar {
+    margin: 0.5rem 0.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-bar-title {
+    font-weight: bold;
+}
+.sub-title {
+    font-weight: normal;
+}
+
+.accordion-dishes {
+    display: flex;
+    flex-direction: column;
+}
+
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
+}
+
+.accordion-separator {
+    height: 1rem;
+    border-bottom: 1rem solid var(--grey-light);
+}
+
+.sub-separator {
+    border-bottom: 0.5px solid var(--grey-light);
+}

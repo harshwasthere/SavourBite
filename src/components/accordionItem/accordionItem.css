@@ -1,0 +1,79 @@
+.accordionItem {
+    padding: 2rem 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    /* max-width: 50rem; */
+}
+
+.accordionItem-details {
+    padding: 1rem 0rem;
+}
+
+.acc-veg {
+    height: 1.125rem;
+}
+
+.acc-veg > img {
+    height: 1.125rem;
+    width: 1.125rem;
+}
+
+.acc-subdetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.acc-subdetails > .acc-item-price {
+    font-size: small;
+}
+
+.acc-item-detail {
+    color: var(--grey-normal);
+    font-size: 0.8rem;
+    margin-top: 0.875rem;
+}
+
+.acc-item-photo {
+    position: relative;
+    width: 9.219rem;
+    height: 7.5rem;
+}
+
+.acc-item-photo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.add-btn-container {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.add-btn {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: var(--color-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.add-btn:hover {
+    background-color: var(--color-darker);
+}
+.add-btn:active {
+    background-color: var(--color-light);
+}
+
+.add-btn-size {
+    padding: 0.5rem 1rem !important;
+}

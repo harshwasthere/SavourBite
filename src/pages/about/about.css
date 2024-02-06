@@ -1,0 +1,114 @@
+.about {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 4.5rem);
+    background-color: var(--green-lighter);
+}
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.about-title {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.about-me-body {
+    background-color: var(--black-perfect);
+    color: var(--green-lighter);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem;
+    border: 1px solid var(--black-perfect);
+    border-radius: 10px;
+    padding: 1rem;
+    max-width: 50rem;
+}
+
+.about-me-profile-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me-profile-photo > img {
+    width: 18rem;
+    border-radius: 100%;
+}
+
+.about-me-details {
+}
+
+.about-me-sub-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me-name {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.9rem;
+    overflow: hidden;
+    text-indent: 0%;
+}
+
+.about-me-username {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-me-location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.about-me-links {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    outline: none;
+    border: none;
+    color: var(--black-perfect);
+    background-color: var(--green-lighter);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+.btn:hover {
+    background-color: var(--color-darker);
+    color: var(--green-lighter);
+}
+.btn:active {
+    background-color: black;
+}
+
+@media only screen and (max-width: 870px) {
+    .about-me-body {
+        gap: 2rem;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .about-me-profile-photo > img {
+        width: 15rem;
+    }
+}

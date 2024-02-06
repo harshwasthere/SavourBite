@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Restaurants() {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
-    const [filteredList, setfilteredList] = useState([]);
+    const [filteredList, setFilteredList] = useState([]);
     const [searchRestaurant, setSearchRestaurant] = useState("");
 
     useEffect(() => {
@@ -22,6 +22,7 @@ export default function Restaurants() {
         const response = await fetch(
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8947446&lng=75.8301169&is-seo-homepage-enabled=true",
         );
+
         const responseJson = await response.json();
         console.log(responseJson);
         const restaurants =
@@ -44,22 +45,22 @@ export default function Restaurants() {
         });
 
         setListOfRestaurants(filteredDetails);
-        setfilteredList(filteredDetails);
+        setFilteredList(filteredDetails);
     };
 
     const handleFastDelivery = () => {
         const fastDeliveryOutput = listOfRestaurants.filter((res) => res.deliveryTime < 30);
-        setfilteredList(fastDeliveryOutput);
+        setFilteredList(fastDeliveryOutput);
     };
 
     const handleVeg = () => {
         const vegOutput = listOfRestaurants.filter((res) => res.veg === true);
-        setfilteredList(vegOutput);
+        setFilteredList(vegOutput);
     };
 
     const handleRating = () => {
         const ratingOutput = listOfRestaurants.filter((res) => Number(res.avgRatingString) > 4.2);
-        setfilteredList(ratingOutput);
+        setFilteredList(ratingOutput);
     };
 
     const handleRange = (rangeKey) => {
@@ -68,7 +69,11 @@ export default function Restaurants() {
             if (rangeKey === 1) return cost >= 300 && cost <= 600;
             else if (rangeKey === 2) return cost < 300;
         });
-        setfilteredList(rangeOutput);
+        setFilteredList(rangeOutput);
+    };
+
+    const handleAllRestaurant = () => {
+        setFilteredList(listOfRestaurants);
     };
 
     return listOfRestaurants.length === 0 ? (
@@ -92,13 +97,16 @@ export default function Restaurants() {
                             const searchOutput = listOfRestaurants.filter((res) =>
                                 res.name.toLowerCase().includes(searchRestaurant.toLowerCase()),
                             );
-                            setfilteredList(searchOutput);
+                            setFilteredList(searchOutput);
                         }}
                     >
                         Search
                     </button>
                 </div>
                 <div className="filters-items">
+                    <button className="filter-btn reset" onClick={handleAllRestaurant}>
+                        Reset
+                    </button>
                     <button className="filter-btn" onClick={handleFastDelivery}>
                         Fast Delivery
                     </button>

@@ -1,4 +1,3 @@
-import { dummyData } from "../accordion/dummyData";
 import "./accordionItem.css";
 import veg from "../../assets/images/veg.png";
 import nonVeg from "../../assets/images/non-veg.png";

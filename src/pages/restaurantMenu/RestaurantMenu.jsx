@@ -4,13 +4,14 @@ import Accordion from "../../components/accordion/Accordion";
 import MenuHeader from "../../components/menu-header/MenuHeader";
 import { useParams } from "react-router-dom";
 import RestaurantShimmer from "../../components/shimmer/RestaurantShimmer";
+import MenuFooter from "../../components/menu-footer/MenuFooter";
 
 export default function RestaurantMenu() {
     const { resId } = useParams();
     const [restaurantMenu, setRestaurantMenu] = useState([]);
     const [headerData, setHeaderData] = useState([]);
     const [menuData, setMenuData] = useState([]);
-    console.log(resId);
+    const [footerData, setFooterData] = useState([]);
 
     useEffect(() => {
         fetchData();
@@ -22,15 +23,17 @@ export default function RestaurantMenu() {
         );
 
         const json = await response.json();
-        console.log(json);
-        const data = json.data.cards;
-        const header = data[0].card.card.info;
-        const menu = data[2].groupedCard.cardGroupMap.REGULAR.cards;
+        const data = json?.data?.cards;
+        const header = data[0]?.card?.card?.info;
+        const menu = data[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+        const { imageId, text } = menu[menu.length - 2].card.card;
+        const { name, area, completeAddress } = menu[menu.length - 1].card.card;
+        const footer = { imageId, text, name, area, completeAddress };
+
         setRestaurantMenu(data);
         setHeaderData(header);
         setMenuData(menu);
-
-        console.log(menuData);
+        setFooterData(footer);
     };
 
     return menuData.length === 0 ? (
@@ -59,7 +62,6 @@ export default function RestaurantMenu() {
                                 />
                             );
                         } else {
-                            console.log(card.categories);
                             return (
                                 <div key={index}>
                                     <div className="menu-heading">
@@ -75,13 +77,16 @@ export default function RestaurantMenu() {
                                             />
                                         );
                                     })}
-                                    {index !== menuData.length - 1 && (
+                                    {index !== menuData.length - 3 && (
                                         <div className="menu-separator"></div>
                                     )}
                                 </div>
                             );
                         }
                     })}
+                </div>
+                <div>
+                    <MenuFooter data={footerData} />
                 </div>
             </div>
         </div>

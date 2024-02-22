@@ -1,7 +1,6 @@
 import "./accordionItem.css";
 import veg from "../../assets/images/veg.png";
 import nonVeg from "../../assets/images/non-veg.png";
-import dishImg from "../../assets/images/dishimg.png";
 
 export default function AccordionItem(props) {
     const { name, description, imageId, inStock, itemAttribute, price, defaultPrice } = props.data;

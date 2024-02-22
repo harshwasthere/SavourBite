@@ -1,45 +1,31 @@
 import "./home.css";
 import homeIllustration from "../../assets/images/home-illustration.png";
-import { useEffect } from "react";
+import { LocateFixed, LocateOffIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-    // const url = "https://outpost.mappls.com/api/security/oauth/token";
-    // const grantType = "client_credentials";
-    // const clientId =
-    //     "96dHZVzsAuuX800hZtxv7UmHK7yYO-uPnn9APnRTBh_hUvdcZkyZSehutg6nYBRWMLfi9WCPinfzub_cfB-Tzg==";
-    // const clientSecret =
-    //     "lrFxI-iSEg-KJoN_MP-pAFLz4-JHC3r54BS2mWlam_gC6rdmO8Bcm11kPh8cPfQf4SkWHzSK6R6M-Uc4mJ9gEMEpsADyRedX";
+    const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     fetchCordinates(url);
-    // }, []);
-
-    // const fetchCordinates = async (url) => {
-    //     const requestOptions = {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/x-www-form-urlencoded",
-    //             Accept: "application/json",
-    //         },
-    //         body: `grant_type=${grantType}&client_id=${encodeURIComponent(
-    //             clientId,
-    //         )}&client_secret=${encodeURIComponent(clientSecret)}`,
-    //     };
-    //     try {
-    //         const response = await fetch(url, requestOptions);
-
-    //         if (!response.ok) {
-    //             console.log("response is !ok");
-    //             return;
-    //         }
-
-    //         const tokenData = await response.json();
-    //         console.log(tokenData);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
+    const handleLocation = (notDemo) => {
+        if ("geolocation" in navigator && notDemo) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                navigate("/restaurant", {
+                    state: {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude,
+                    },
+                });
+            });
+        } else {
+            console.log("Geolocation is not available in your browser.");
+            navigate("/restaurant", {
+                state: {
+                    latitude: 26.8947446,
+                    longitude: 75.8301169,
+                },
+            });
+        }
+    };
     return (
         <div className="home">
             <div className="home-logo">KhanaKhoj</div>
@@ -54,11 +40,23 @@ export default function Home() {
                             The quickest way to find your <span>food</span>
                         </span>
                     </div>
-                    <div className="primary-search">
-                        <label>
-                            <input type="text" placeholder="Location" className="search-size" />
-                        </label>
-                        <button className="primary-btn search-size">Search</button>
+
+                    <div className="btn-container">
+                        <button
+                            onClick={() => handleLocation(true)}
+                            className="primary-btn location-btn search-size"
+                        >
+                            <LocateFixed />
+                            Location
+                        </button>
+
+                        <button
+                            onClick={() => handleLocation(false)}
+                            className="primary-btn search-size"
+                        >
+                            <LocateOffIcon />
+                            Demo
+                        </button>
                     </div>
                 </div>
                 <div className="home-illustration">
@@ -70,3 +68,5 @@ export default function Home() {
         </div>
     );
 }
+
+

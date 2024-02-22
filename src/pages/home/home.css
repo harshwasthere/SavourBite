@@ -48,6 +48,9 @@
 }
 
 .primary-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     outline: none;
     border: none;
     color: white;
@@ -91,6 +94,28 @@
 .home-footer {
     font-family: "untitled-sans";
     margin: 1rem 0rem;
+}
+
+.btn-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-container > a {
+    text-decoration: none;
+}
+
+.location-btn {
+    background-color: #892be2b2;
+    color: black;
+}
+
+.location-btn:hover {
+    background-color: rgba(137, 43, 226, 0.782);
+}
+
+.location-btn:active {
+    background-color: blueviolet;
 }
 
 /* ----------------------- MEDIA QUERIES FOR RESPONSIVENESS -----------------*/

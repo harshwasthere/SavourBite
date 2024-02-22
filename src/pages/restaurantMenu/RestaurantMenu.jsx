@@ -19,13 +19,14 @@ export default function RestaurantMenu() {
 
     const fetchData = async () => {
         const response = await fetch(
-            `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.8947446&lng=75.8301169&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`,
+            "https://cors-anywhere.herokuapp.com/" +
+                `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.8947446&lng=75.8301169&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`,
         );
 
         const json = await response.json();
         const data = json?.data?.cards;
-        const header = data[0]?.card?.card?.info;
-        const menu = data[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+        const header = data[2]?.card?.card?.info;
+        const menu = data[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
         const { imageId, text } = menu[menu.length - 2].card.card;
         const { name, area, completeAddress } = menu[menu.length - 1].card.card;
         const footer = { imageId, text, name, area, completeAddress };

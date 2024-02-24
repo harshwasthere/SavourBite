@@ -1,5 +1,4 @@
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 
 /*
  * PAGES
@@ -12,35 +11,23 @@ import About from "./pages/about/About.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import RestaurantMenu from "./pages/restaurantMenu/RestaurantMenu.jsx";
 
-/*
- * APP COMPONENTS
- */
-
-const App = () => {
-    return (
-        <div className="app">
-            <Home />
-        </div>
-    );
-};
-
-const Other = () => {
-    return (
-        <div className="app">
-            <Header />
-            <Outlet />
-        </div>
-    );
-};
-
-const appRouter = createBrowserRouter([
+const App = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: (
+            <div className="app">
+                <Home />
+            </div>
+        ),
     },
     {
         path: "/",
-        element: <Other />,
+        element: (
+            <div className="app">
+                <Header />
+                <Outlet />
+            </div>
+        ),
         children: [
             {
                 path: "/restaurant",
@@ -66,8 +53,4 @@ const appRouter = createBrowserRouter([
     },
 ]);
 
-/*
- *  RENDERING
- */
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);
+export default App;

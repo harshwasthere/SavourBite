@@ -1,9 +1,5 @@
 import "./squarecard.css";
 import starIcon from "../../assets/images/star.svg";
-import longX from "../../assets/images/longx.jpg";
-import longY from "../../assets/images/longy.jpg";
-import fit from "../../assets/images/fit.jpg";
-import squareImage from "../../assets/images/square.jpg";
 
 export default function SquareCard(props) {
     const { name, cuisines, avgRatingString, deliveryTime, cloudinaryImageId } =

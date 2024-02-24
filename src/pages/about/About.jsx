@@ -14,6 +14,7 @@ export default class About extends React.Component {
     async componentDidMount() {
         const response = await fetch("https://api.github.com/users/harsh12codes");
         const json = await response.json();
+        console.log(json);
 
         this.setState({
             data: json,

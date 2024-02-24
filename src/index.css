@@ -46,48 +46,48 @@
 */
 
 /* .home-logo {
-    font-family: "virgil";
-    font-size: 3rem;
-    margin: 1rem 0rem;
+  font-family: "virgil";
+  font-size: 3rem;
+  margin: 1rem 0rem;
 } */
 
 /* .home-footer {
-    font-family: "untitled-sans";
-    margin: 1rem 0rem;
+  font-family: "untitled-sans";
+  margin: 1rem 0rem;
 } */
 
 /* .primary-btn {
-    outline: none;
-    border: none;
-    color: white;
-    background-color: var(--color-dark);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: var(--color-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 .primary-btn:hover {
-    background-color: var(--color-darker);
+  background-color: var(--color-darker);
 }
 .primary-btn:active {
-    background-color: var(--color-light);
+  background-color: var(--color-light);
 }
 
 .primary-search > label > input {
-    outline: none;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    margin-right: 0.2rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-right: 0.2rem;
 }
 
 .primary-search > label > input:active {
-    outline: 1px solid var(--color-light);
+  outline: 1px solid var(--color-light);
 }
 
 .search-large {
-    font-size: large;
-    padding: 0.8rem 1.2rem !important;
+  font-size: large;
+  padding: 0.8rem 1.2rem !important;
 }
 
 .search-small {
-    padding: 0.5rem 1rem !important;
+  padding: 0.5rem 1rem !important;
 } */

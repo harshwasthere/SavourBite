@@ -2,13 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import "./restaurants.css";
 import SquareCard from "../../components/cards/SquareCard";
 import Shimmer from "../../components/shimmer/Shimmer";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Restaurants() {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchRestaurant, setSearchRestaurant] = useState("");
-    const location = useLocation();
 
     useEffect(() => {
         fetchData();
@@ -19,17 +18,6 @@ export default function Restaurants() {
             "https://cors-anywhere.herokuapp.com/" +
                 "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8947446&lng=75.8301169&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
         );
-
-        // const lat = location?.state?.latitude;
-        // const lng = location?.state?.longitude;
-
-        // const response = await fetch(
-        //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=" +
-        //         lat +
-        //         "&lng=" +
-        //         lng +
-        //         "&is-seo-homepage-enabled=true",
-        // );
 
         const responseJson = await response.json();
         const restaurants =

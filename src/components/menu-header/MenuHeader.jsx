@@ -20,7 +20,6 @@ export default function MenuHeader(props) {
                 <div className="menu-header-details">
                     <span className="menu-name">{name}</span>
                     <span className="menu-subdetails">{cuisines?.join(", ")}</span>
-                    {}
                     <span className="menu-subdetails">{`${areaName ? areaName : ""} ${
                         areaName && sla.lastMileTravelString ? "," : ""
                     } ${sla?.lastMileTravelString ? sla.lastMileTravelString : ""}`}</span>
@@ -37,7 +36,7 @@ export default function MenuHeader(props) {
             </div>
 
             <div className="menu-delivery">
-                {expectationNotifiers?.[0]?.text ? <Bike size={"1rem"} /> : <div></div>}
+                {expectationNotifiers?.[0]?.text && <Bike size={"1rem"} />}
                 <span>{expectationNotifiers?.[0]?.text}</span>
             </div>
             <hr />

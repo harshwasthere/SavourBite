@@ -1,28 +1,26 @@
+import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import AccordionItem from "../accordionItem/AccordionItem";
 import "./accordion.css";
-import { useState } from "react";
 
 export default function Accordion(props) {
     const { card, index, isSubCard } = props;
-    const [toggled, setToggled] = useState([]);
+    const [toggled, setToggled] = useState(() => []);
 
     const handleToggle = (index) => {
         const isOpen = toggled.includes(index);
         if (isOpen) {
-            const opened = toggled.filter((i) => i !== index);
-            setToggled(opened);
+            setToggled(toggled.filter((i) => i !== index));
         } else {
             setToggled([...toggled, index]);
         }
     };
-    const totalItemCards = card?.itemCards?.length;
 
     return (
         <div className="accordion-subclass">
             <div className="accordion-bar" onClick={() => handleToggle(index)}>
                 <span className={isSubCard ? "sub-title" : "accordion-bar-title"}>
-                    {`${card.title} (${totalItemCards})`}
+                    {`${card.title} (${card.itemCards.length})`}
                 </span>
                 {toggled.includes(index) ? <ChevronUp /> : <ChevronDown />}
             </div>
@@ -34,7 +32,7 @@ export default function Accordion(props) {
                         key={dishIndex}
                         className={`accordion-dishes ${toggled.includes(index) ? "open" : "close"}`}
                     >
-                        <AccordionItem data={dishData} />
+                        <AccordionItem key={dishIndex} data={dishData} />
                         {dishIndex !== card.itemCards.length - 1 && (
                             <div className="accordion-dishes-breaker"></div>
                         )}

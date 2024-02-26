@@ -1,46 +1,78 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./restaurants.css";
 import SquareCard from "../../components/cards/SquareCard";
 import Shimmer from "../../components/shimmer/Shimmer";
 import { Link } from "react-router-dom";
+import { useLocation } from "../../hooks/useLocation";
 
 export default function Restaurants() {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchRestaurant, setSearchRestaurant] = useState("");
+    const { currentLocation } = useLocation();
+
+    const fetchData = async (coordinates) => {
+        try {
+            const response = await fetch(
+                `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
+            );
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch restaurants");
+            }
+
+            const responseJson = await response.json();
+            const restaurants =
+                responseJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+            const filteredDetails = restaurants.map((shop) => {
+                const {
+                    id,
+                    name,
+                    cuisines,
+                    avgRatingString,
+                    sla,
+                    cloudinaryImageId,
+                    veg,
+                    costForTwo,
+                } = shop.info;
+                const { deliveryTime } = sla;
+                return {
+                    id,
+                    name,
+                    cuisines,
+                    avgRatingString,
+                    deliveryTime,
+                    cloudinaryImageId,
+                    veg,
+                    costForTwo,
+                };
+            });
+
+            setListOfRestaurants(filteredDetails);
+            setFilteredList(filteredDetails);
+        } catch (error) {
+            console.error("Error fetching restaurants:", error);
+        }
+    };
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        fetchData(currentLocation);
+    }, [currentLocation]);
 
-    const fetchData = async () => {
-        const response = await fetch(
-            "https://cors-anywhere.herokuapp.com/" +
-                "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8947446&lng=75.8301169&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+    useEffect(() => {
+        let timeout = setTimeout(() => {
+            handleSearch();
+        }, 1000);
+
+        return () => clearTimeout(timeout);
+    }, [searchRestaurant]);
+
+    const handleSearch = () => {
+        const filteredRestaurants = listOfRestaurants.filter((res) =>
+            res.name.toLowerCase().includes(searchRestaurant.toLowerCase()),
         );
-
-        const responseJson = await response.json();
-        const restaurants =
-            responseJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-        const filteredDetails = restaurants.map((shop) => {
-            const { id, name, cuisines, avgRatingString, sla, cloudinaryImageId, veg, costForTwo } =
-                shop.info;
-            const { deliveryTime } = sla;
-            return {
-                id,
-                name,
-                cuisines,
-                avgRatingString,
-                deliveryTime,
-                cloudinaryImageId,
-                veg,
-                costForTwo,
-            };
-        });
-
-        setListOfRestaurants(filteredDetails);
-        setFilteredList(filteredDetails);
+        setFilteredList(filteredRestaurants);
     };
 
     const handleFastDelivery = () => {
@@ -86,15 +118,7 @@ export default function Restaurants() {
                             onChange={(e) => setSearchRestaurant(e.target.value)}
                         />
                     </label>
-                    <button
-                        className="search-btn filters-search-size"
-                        onClick={() => {
-                            const searchOutput = listOfRestaurants.filter((res) =>
-                                res.name.toLowerCase().includes(searchRestaurant.toLowerCase()),
-                            );
-                            setFilteredList(searchOutput);
-                        }}
-                    >
+                    <button className="search-btn filters-search-size" onClick={handleSearch}>
                         Search
                     </button>
                 </div>
@@ -121,7 +145,7 @@ export default function Restaurants() {
             </div>
             <div className="res-cards">
                 {filteredList.map((res) => (
-                    <Link key={res.id} to={`/restaurant/${res.id}`}>
+                    <Link key={res.id} to={`/home/restaurant/${res.id}`}>
                         <SquareCard key={res.id} restaurantCardData={res} />
                     </Link>
                 ))}

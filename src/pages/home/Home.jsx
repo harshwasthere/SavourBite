@@ -1,8 +1,14 @@
 import "./home.css";
 import homeIllustration from "../../assets/images/home-illustration.png";
 import { LocateFixed, LocateOffIcon } from "lucide-react";
+import { useLocation } from "../../hooks/useLocation";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+    const { fetchCurrentLocation, addDemoCoordinate } = useLocation();
+
+    const navigate = useNavigate();
+
     return (
         <div className="home">
             <div className="home-logo">KhanaKhoj</div>
@@ -19,12 +25,24 @@ export default function Home() {
                     </div>
 
                     <div className="btn-container">
-                        <button className="primary-btn location-btn search-size">
+                        <button
+                            onClick={async () => {
+                                await fetchCurrentLocation();
+                                navigate("/home/restaurant");
+                            }}
+                            className="primary-btn location-btn search-size"
+                        >
                             <LocateFixed />
                             Location
                         </button>
 
-                        <button className="primary-btn search-size">
+                        <button
+                            onClick={async () => {
+                                await addDemoCoordinate();
+                                navigate("/home/restaurant");
+                            }}
+                            className="primary-btn search-size"
+                        >
                             <LocateOffIcon />
                             Demo
                         </button>

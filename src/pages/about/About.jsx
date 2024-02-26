@@ -1,30 +1,40 @@
+import React from "react";
 import { Code2Icon, Github, MapPin } from "lucide-react";
 import "./about.css";
-import React from "react";
 import AboutShimmer from "../../components/shimmer/AboutShimmer";
 
-export default class About extends React.Component {
+class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
+            data: {},
+            loading: true,
         };
     }
 
     async componentDidMount() {
-        const response = await fetch("https://api.github.com/users/harsh12codes");
-        const json = await response.json();
-        console.log(json);
+        try {
+            const response = await fetch("https://api.github.com/users/harsh12codes");
+            const json = await response.json();
+            console.log(json);
 
-        this.setState({
-            data: json,
-        });
+            this.setState({
+                data: json,
+                loading: false,
+            });
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            // Handle error, e.g., display an error message to the user
+            this.setState({
+                loading: false,
+            });
+        }
     }
 
     render() {
         const { avatar_url, name, location, bio, login } = this.state.data;
 
-        return this.state.data.length === 0 ? (
+        return this.state.loading ? (
             <AboutShimmer />
         ) : (
             <div className="about">
@@ -65,3 +75,5 @@ export default class About extends React.Component {
         );
     }
 }
+
+export default About;

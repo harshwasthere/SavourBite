@@ -1,43 +1,46 @@
 import { useState } from "react";
 import "./header.css";
 import { ChevronUpSquare, MenuSquare } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
-export default function Header() {
-    const [toggle, setToggle] = useState(false);
+import { NavLink } from "react-router-dom";
 
-    const handleToggle = () => setToggle(!toggle);
+export default function Header() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
         <nav>
             <div className="header-logo">
-                <NavLink to="/">KhanaKhoj</NavLink>
+                <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+                    KhanaKhoj
+                </NavLink>
             </div>
-            <div className="header-hamburger" onClick={handleToggle}>
-                {toggle ? (
+            <div className="header-hamburger" onClick={toggleMenu}>
+                {isMenuOpen ? (
                     <ChevronUpSquare className="icon-size" />
                 ) : (
                     <MenuSquare className="icon-size" />
                 )}
             </div>
-            <div className={`header-menu ${toggle ? "open" : ""}`}>
+            <div className={`header-menu ${isMenuOpen ? "open" : ""}`}>
                 <ul>
                     <li>
-                        <NavLink to="/restaurant" onClick={handleToggle}>
+                        <NavLink to="/home/restaurant" onClick={toggleMenu}>
                             Restaurants
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contact" onClick={handleToggle}>
+                        <NavLink to="/home/contact" onClick={toggleMenu}>
                             Contact
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" onClick={handleToggle}>
+                        <NavLink to="/home/about" onClick={toggleMenu}>
                             About
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/cart" onClick={handleToggle}>
+                        <NavLink to="/home/cart" onClick={toggleMenu}>
                             Cart
                         </NavLink>
                     </li>

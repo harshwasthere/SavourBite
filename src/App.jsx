@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 /*
  * PAGES
@@ -11,46 +11,27 @@ import About from "./pages/about/About.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import RestaurantMenu from "./pages/restaurantMenu/RestaurantMenu.jsx";
 
-const App = createBrowserRouter([
-    {
-        path: "/",
-        element: (
-            <div className="app">
-                <Home />
-            </div>
-        ),
-    },
-    {
-        path: "/",
-        element: (
-            <div className="app">
-                <Header />
-                <Outlet />
-            </div>
-        ),
-        children: [
-            {
-                path: "/restaurant",
-                element: <Restaurants />,
-            },
-            {
-                path: "/contact",
-                element: <Contact />,
-            },
-            {
-                path: "/about",
-                element: <About />,
-            },
-            {
-                path: "/cart",
-                element: <Cart />,
-            },
-            {
-                path: "/restaurant/:resId",
-                element: <RestaurantMenu />,
-            },
-        ],
-    },
-]);
+const App = () => (
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+                path="/home"
+                element={
+                    <div className="app">
+                        <Header />
+                        <Outlet />
+                    </div>
+                }
+            >
+                <Route path="restaurant" element={<Restaurants />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="about" element={<About />} />
+                <Route path="cart" element={<Cart />} />
+                <Route path="restaurant/:resId" element={<RestaurantMenu />} />
+            </Route>
+        </Routes>
+    </BrowserRouter>
+);
 
 export default App;

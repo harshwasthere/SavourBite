@@ -3,7 +3,7 @@ import veg from "../../assets/images/veg.png";
 import nonVeg from "../../assets/images/non-veg.png";
 
 export default function AccordionItem(props) {
-    const { name, description, imageId, inStock, itemAttribute, price, defaultPrice } = props.data;
+    const { name, description, imageId, itemAttribute, price, defaultPrice } = props.data;
     const imageLink = imageId
         ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${imageId}`
         : null;

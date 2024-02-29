@@ -5,8 +5,11 @@ import MenuHeader from "../../components/menu-header/MenuHeader";
 import { useParams } from "react-router-dom";
 import RestaurantShimmer from "../../components/shimmer/RestaurantShimmer";
 import MenuFooter from "../../components/menu-footer/MenuFooter";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
+import OfflineScreen from "../../components/offlineScreen/OfflineScreen";
 
 const RestaurantMenu = () => {
+    const onlineStatus = useOnlineStatus();
     const { resId } = useParams();
     const [loading, setLoading] = useState(true);
     const [headerData, setHeaderData] = useState({});
@@ -24,8 +27,8 @@ const RestaurantMenu = () => {
             );
             const json = await response.json();
             const data = json?.data?.cards;
-            const header = data[2]?.card?.card?.info;
-            const menu = data[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+            const header = data[0]?.card?.card?.info;
+            const menu = data[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
             const { imageId, text } = menu[menu.length - 2]?.card?.card || {};
             const { name, area, completeAddress } = menu[menu.length - 1]?.card?.card || {};
             const footer = { imageId, text, name, area, completeAddress };
@@ -39,6 +42,8 @@ const RestaurantMenu = () => {
             setLoading(false);
         }
     };
+
+    if (!onlineStatus) return <OfflineScreen />;
 
     if (loading) {
         return <RestaurantShimmer />;

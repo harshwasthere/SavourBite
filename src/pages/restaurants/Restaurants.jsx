@@ -4,8 +4,11 @@ import SquareCard from "../../components/cards/SquareCard";
 import Shimmer from "../../components/shimmer/Shimmer";
 import { Link } from "react-router-dom";
 import { useLocation } from "../../hooks/useLocation";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
+import OfflineScreen from "../../components/offlineScreen/OfflineScreen";
 
 export default function Restaurants() {
+    const onlineStatus = useOnlineStatus();
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchRestaurant, setSearchRestaurant] = useState("");
@@ -16,14 +19,21 @@ export default function Restaurants() {
             const response = await fetch(
                 `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
             );
-
-            if (!response.ok) {
-                throw new Error("Failed to fetch restaurants");
-            }
-
             const responseJson = await response.json();
-            const restaurants =
-                responseJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+            const cards = responseJson.data.cards;
+
+            const desiredCard = cards.find(
+                (card) =>
+                    card.card &&
+                    card.card.card &&
+                    card.card.card &&
+                    card.card.card.gridElements &&
+                    card.card.card.gridElements.infoWithStyle &&
+                    card.card.card.gridElements.infoWithStyle["@type"] ===
+                        "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle",
+            );
+            const restaurants = desiredCard.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
             const filteredDetails = restaurants.map((shop) => {
                 const {
@@ -51,6 +61,7 @@ export default function Restaurants() {
 
             setListOfRestaurants(filteredDetails);
             setFilteredList(filteredDetails);
+            console.log(filteredDetails);
         } catch (error) {
             console.error("Error fetching restaurants:", error);
         }
@@ -61,6 +72,7 @@ export default function Restaurants() {
     }, [currentLocation]);
 
     useEffect(() => {
+        if (searchRestaurant === "") return;
         let timeout = setTimeout(() => {
             handleSearch();
         }, 1000);
@@ -103,6 +115,8 @@ export default function Restaurants() {
         setFilteredList(listOfRestaurants);
     };
 
+    if (!onlineStatus) return <OfflineScreen />;
+
     return listOfRestaurants.length === 0 ? (
         <Shimmer />
     ) : (
@@ -118,9 +132,7 @@ export default function Restaurants() {
                             onChange={(e) => setSearchRestaurant(e.target.value)}
                         />
                     </label>
-                    <button className="search-btn filters-search-size" onClick={handleSearch}>
-                        Search
-                    </button>
+                    <button className="search-btn filters-search-size">Search</button>
                 </div>
                 <div className="filters-items">
                     <button className="filter-btn reset" onClick={handleAllRestaurant}>

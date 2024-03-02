@@ -24,7 +24,6 @@ class About extends React.Component {
             });
         } catch (error) {
             console.error("Error fetching data:", error);
-            // Handle error, e.g., display an error message to the user
             this.setState({
                 loading: false,
             });

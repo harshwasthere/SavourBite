@@ -24,9 +24,7 @@ export default function Restaurants() {
                 `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
             );
             const responseJson = await response.json();
-
             const cards = responseJson.data.cards;
-            console.log(cards);
 
             const locUnavailable = cards.find(
                 (card) =>
@@ -51,7 +49,6 @@ export default function Restaurants() {
                         "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle",
             );
             const restaurants = desiredCard.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            console.log(restaurants);
             const filteredDetails = restaurants.map((shop) => {
                 const {
                     id,
@@ -75,7 +72,6 @@ export default function Restaurants() {
                     costForTwo,
                 };
             });
-            console.log(filteredDetails);
 
             setListOfRestaurants(filteredDetails);
             setFilteredList(filteredDetails);
@@ -88,13 +84,6 @@ export default function Restaurants() {
         fetchData(currentLocation);
     }, [currentLocation]);
 
-    const handleSearch = () => {
-        const filteredRestaurants = listOfRestaurants.filter((res) =>
-            res.name.toLowerCase().includes(searchRestaurant.toLowerCase()),
-        );
-        setFilteredList(filteredRestaurants);
-    };
-
     useEffect(() => {
         if (!initalRender) {
             handleSearch();
@@ -102,6 +91,13 @@ export default function Restaurants() {
             setInitialRender(false);
         }
     }, [debounceValue]);
+
+    const handleSearch = () => {
+        const filteredRestaurants = listOfRestaurants.filter((res) =>
+            res.name.toLowerCase().includes(searchRestaurant.toLowerCase()),
+        );
+        setFilteredList(filteredRestaurants);
+    };
 
     const handleFastDelivery = () => {
         const fastDeliveryOutput = listOfRestaurants.filter((res) => res.deliveryTime < 30);
@@ -132,27 +128,11 @@ export default function Restaurants() {
     };
 
     if (!swiggyActive) {
-        return (
-            <OfflineScreen
-                data={{
-                    imageLink: "/src/assets/images/locationUnavailable.png",
-                    msg: "Oops! Location unavailable ",
-                }}
-            />
-        );
+        return <OfflineScreen type={"unavailable"} />;
     }
-
     if (!onlineStatus) {
-        return (
-            <OfflineScreen
-                data={{
-                    imageLink: "/src/assets/images/error.png",
-                    msg: "Oops! It looks like you've lost connection.",
-                }}
-            />
-        );
+        return <OfflineScreen type={"offline"} />;
     }
-
     return listOfRestaurants.length === 0 ? (
         <Shimmer />
     ) : (

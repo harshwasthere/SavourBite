@@ -94,7 +94,6 @@ export default function Cart() {
                 </div>
 
                 <div className="cart-items-container">
-                    {/* <div className="cart-items-separator"></div> */}
                     {items.map((item, index) => {
                         return (
                             <div key={item.itemData.id}>
@@ -109,7 +108,6 @@ export default function Cart() {
                             </div>
                         );
                     })}
-                    {/* <div className="cart-items-separator"></div> */}
                 </div>
             </div>
         </div>

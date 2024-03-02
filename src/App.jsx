@@ -1,8 +1,5 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
-/*
- * PAGES
- */
 import Home from "./pages/home/Home.jsx";
 import Header from "./components/header/Header";
 import Restaurants from "./pages/restaurants/Restaurants.jsx";

@@ -1,4 +1,3 @@
-import React from "react";
 import "./aboutshimmer.css";
 
 export default function AboutShimmer() {

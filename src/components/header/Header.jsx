@@ -12,7 +12,7 @@ export default function Header() {
         <nav>
             <div className="header-logo">
                 <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
-                    KhanaKhoj
+                    SavourBite
                 </NavLink>
             </div>
             <div className="header-hamburger" onClick={toggleMenu}>

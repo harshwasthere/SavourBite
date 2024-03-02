@@ -1,0 +1,101 @@
+.contact {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 4.5rem);
+    background-color: var(--green-lighter);
+}
+
+.contact-title {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.contact-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+}
+
+.contact-form {
+    background-color: var(--green-light);
+    padding: 3.5rem 2rem;
+    padding-top: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 26rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: var(--color-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: large;
+}
+
+.contact-btn:hover {
+    background-color: var(--color-darker);
+}
+
+.contact-btn:active {
+    background-color: var(--color-light);
+}
+
+.contact-form > input,
+textarea {
+    background-color: var(--black-light);
+    resize: none;
+    width: 100%;
+    min-width: 100%;
+    border: 2px solid var(--black-light);
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-right: 0.2rem;
+    font-size: medium;
+}
+
+.contact-form > textarea {
+    min-height: 10rem;
+}
+
+.contact-form > input:focus,
+textarea:focus {
+    border: 2px solid var(--color-lighter);
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.contact-text-heading {
+    font-family: "Virgil";
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.contact-text-subheading {
+    font-size: small;
+    opacity: 60%;
+}

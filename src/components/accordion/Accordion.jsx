@@ -4,7 +4,7 @@ import AccordionItem from "../accordionItem/AccordionItem";
 import "./accordion.css";
 
 export default function Accordion(props) {
-    const { card, index, isSubCard } = props;
+    const { card, index, isSubCard, restaurantId } = props;
     const [toggled, setToggled] = useState(() => []);
 
     const handleToggle = (index) => {
@@ -29,10 +29,15 @@ export default function Accordion(props) {
                 const dishData = dish.card.info;
                 return (
                     <div
-                        key={dishIndex}
+                        key={dishData.id}
                         className={`accordion-dishes ${toggled.includes(index) ? "open" : "close"}`}
                     >
-                        <AccordionItem key={dishIndex} data={dishData} />
+                        <AccordionItem
+                            key={dishData.id}
+                            data={dishData}
+                            restaurantId={restaurantId}
+                            restaurantData={props.restaurantData}
+                        />
                         {dishIndex !== card.itemCards.length - 1 && (
                             <div className="accordion-dishes-breaker"></div>
                         )}

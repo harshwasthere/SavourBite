@@ -62,15 +62,32 @@ class About extends React.Component {
                                 </button>
                                 <button className="btn">
                                     <Code2Icon size={"1rem"} />
-                                    KhanaKhoj
+                                    SavourBite
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <div className="about-project">
+                <div className="about-project">
                     <span className="about-title">෴ ABOUT PROJECT ෴</span>
-                </div> */}
+                    <div className="about-project-text">
+                        <span>
+                            SavourBite is a food-ordering website that is built on top of the Swiggy
+                            API, a well-renowned food ordering platform. By seamlessly integrating
+                            technology with culinary expertise, SavourBite aims to provide users
+                            with a convenient and enjoyable platform for discovering, ordering, and
+                            savoring delicious meals from a variety of restaurants and eateries.
+                        </span>
+                        <span>
+                            The website boasts a sleek and user-friendly interface that makes
+                            browsing through menus and placing orders a breeze. Users can easily
+                            search for their favorite restaurant, explore new dining options, and
+                            customize their orders to suit their preferences. Whether craving
+                            traditional comfort food or exotic international flavors, SavourBite has
+                            something to satisfy every palate.
+                        </span>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
         <div className="home">
-            <div className="home-logo">KhanaKhoj</div>
+            <div className="home-logo">SavourBite</div>
             <div className="home-body">
                 <div className="home-details">
                     <div className="home-text">

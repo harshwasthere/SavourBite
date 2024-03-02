@@ -1,9 +1,11 @@
 import "./accordionItem.css";
 import veg from "../../assets/images/veg.png";
 import nonVeg from "../../assets/images/non-veg.png";
+import ItemAddButton from "../button/ItemAddButton";
 
 export default function AccordionItem(props) {
     const { name, description, imageId, itemAttribute, price, defaultPrice } = props.data;
+    const { restaurantId } = props;
     const imageLink = imageId
         ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${imageId}`
         : null;
@@ -31,7 +33,11 @@ export default function AccordionItem(props) {
                 <div className="acc-item-photo">
                     {imageLink && <img src={imageLink} alt="restaurant-photo" />}
                     <div className="add-btn-container">
-                        <button className="add-btn add-btn-size">ADD</button>
+                        <ItemAddButton
+                            restaurantId={restaurantId}
+                            itemData={props.data}
+                            restaurantData={props.restaurantData}
+                        />
                     </div>
                 </div>
             </div>

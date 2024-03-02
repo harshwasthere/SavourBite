@@ -13,6 +13,7 @@
     --grey-light: #eaeaea;
     --grey-normal: #b2b2b2;
     --black-perfect: #3c3c3c;
+    --black-light: #e6e6e6;
 }
 
 @font-face {
@@ -31,6 +32,7 @@
 
 * {
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
     font-family: "untitled-sans", sans-serif;
     margin: 0%;
     padding: 0%;

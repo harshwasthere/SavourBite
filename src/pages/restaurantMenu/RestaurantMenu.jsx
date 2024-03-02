@@ -27,8 +27,20 @@ const RestaurantMenu = () => {
             );
             const json = await response.json();
             const data = json?.data?.cards;
-            const header = data[0]?.card?.card?.info;
-            const menu = data[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+            console.log(data);
+
+            const headerFinder = data.find(
+                (card) =>
+                    card.card &&
+                    card.card.card &&
+                    card.card.card["@type"] ===
+                        "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+            );
+            const header = headerFinder?.card?.card?.info;
+
+            const menuFinder = data.find((card) => "groupedCard" in card);
+            const menu = menuFinder.groupedCard?.cardGroupMap?.REGULAR?.cards;
+
             const { imageId, text } = menu[menu.length - 2]?.card?.card || {};
             const { name, area, completeAddress } = menu[menu.length - 1]?.card?.card || {};
             const footer = { imageId, text, name, area, completeAddress };
@@ -70,6 +82,13 @@ const RestaurantMenu = () => {
                                     card={card}
                                     index={index}
                                     isSubCard={false}
+                                    restaurantId={resId}
+                                    restaurantData={{
+                                        cloudinaryImageId: headerData.cloudinaryImageId,
+                                        name: headerData.name,
+                                        locality: headerData.locality,
+                                        deliveryFee: headerData?.feeDetails?.totalFee,
+                                    }}
                                 />
                             );
                         } else {
@@ -85,6 +104,13 @@ const RestaurantMenu = () => {
                                                 card={subCardData}
                                                 index={subIndex}
                                                 isSubCard={true}
+                                                restaurantId={resId}
+                                                restaurantData={{
+                                                    cloudinaryImageId: headerData.cloudinaryImageId,
+                                                    name: headerData.name,
+                                                    locality: headerData.locality,
+                                                    deliveryFee: headerData?.feeDetails?.totalFee,
+                                                }}
                                             />
                                         );
                                     })}

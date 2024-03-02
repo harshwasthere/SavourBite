@@ -10,15 +10,15 @@
     flex-direction: column;
     align-items: center;
     padding: 0.5rem;
+    padding-bottom: 0rem;
 }
 
 .about-title {
     display: flex;
     justify-content: center;
-    margin: 0.5rem;
     padding: 0.5rem;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: larger;
 }
 
 .about-me-body {
@@ -32,6 +32,7 @@
     border-radius: 10px;
     padding: 1rem;
     max-width: 50rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .about-me-profile-photo {
@@ -43,9 +44,6 @@
 .about-me-profile-photo > img {
     width: 18rem;
     border-radius: 100%;
-}
-
-.about-me-details {
 }
 
 .about-me-sub-details {
@@ -102,6 +100,24 @@
     background-color: black;
 }
 
+.about-project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    padding-top: 0rem;
+}
+
+.about-project-text {
+    color: var(--color-light);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 50rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: large;
+}
 @media only screen and (max-width: 870px) {
     .about-me-body {
         gap: 2rem;

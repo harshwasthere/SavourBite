@@ -1,0 +1,32 @@
+.add-btn {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: var(--color-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.add-btn:hover {
+    background-color: var(--color-darker);
+}
+.add-btn:active {
+    background-color: var(--color-light);
+}
+
+.add-btn-size {
+    padding: 0.2rem 0.5rem !important;
+}
+
+.add-btn-space {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.calc-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}

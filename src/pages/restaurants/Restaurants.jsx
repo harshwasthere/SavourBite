@@ -6,13 +6,17 @@ import { Link } from "react-router-dom";
 import { useLocation } from "../../hooks/useLocation";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 import OfflineScreen from "../../components/offlineScreen/OfflineScreen";
+import useDebounce from "../../hooks/useDebounce";
 
 export default function Restaurants() {
     const onlineStatus = useOnlineStatus();
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchRestaurant, setSearchRestaurant] = useState("");
+    const [swiggyActive, setSwiggyActive] = useState(true);
     const { currentLocation } = useLocation();
+    const [initalRender, setInitialRender] = useState(true);
+    const debounceValue = useDebounce(searchRestaurant, 1000);
 
     const fetchData = async (coordinates) => {
         try {
@@ -22,11 +26,24 @@ export default function Restaurants() {
             const responseJson = await response.json();
 
             const cards = responseJson.data.cards;
+            console.log(cards);
+
+            const locUnavailable = cards.find(
+                (card) =>
+                    card.card &&
+                    card.card.card &&
+                    card.card.card["@type"] ===
+                        "type.googleapis.com/swiggy.seo.widgets.v1.SwiggyNotPresent",
+            );
+
+            if (locUnavailable !== undefined) {
+                setSwiggyActive(false);
+                return;
+            }
 
             const desiredCard = cards.find(
                 (card) =>
                     card.card &&
-                    card.card.card &&
                     card.card.card &&
                     card.card.card.gridElements &&
                     card.card.card.gridElements.infoWithStyle &&
@@ -34,7 +51,7 @@ export default function Restaurants() {
                         "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle",
             );
             const restaurants = desiredCard.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
+            console.log(restaurants);
             const filteredDetails = restaurants.map((shop) => {
                 const {
                     id,
@@ -58,10 +75,10 @@ export default function Restaurants() {
                     costForTwo,
                 };
             });
+            console.log(filteredDetails);
 
             setListOfRestaurants(filteredDetails);
             setFilteredList(filteredDetails);
-            console.log(filteredDetails);
         } catch (error) {
             console.error("Error fetching restaurants:", error);
         }
@@ -71,21 +88,20 @@ export default function Restaurants() {
         fetchData(currentLocation);
     }, [currentLocation]);
 
-    useEffect(() => {
-        if (searchRestaurant === "") return;
-        let timeout = setTimeout(() => {
-            handleSearch();
-        }, 1000);
-
-        return () => clearTimeout(timeout);
-    }, [searchRestaurant]);
-
     const handleSearch = () => {
         const filteredRestaurants = listOfRestaurants.filter((res) =>
             res.name.toLowerCase().includes(searchRestaurant.toLowerCase()),
         );
         setFilteredList(filteredRestaurants);
     };
+
+    useEffect(() => {
+        if (!initalRender) {
+            handleSearch();
+        } else {
+            setInitialRender(false);
+        }
+    }, [debounceValue]);
 
     const handleFastDelivery = () => {
         const fastDeliveryOutput = listOfRestaurants.filter((res) => res.deliveryTime < 30);
@@ -115,7 +131,27 @@ export default function Restaurants() {
         setFilteredList(listOfRestaurants);
     };
 
-    if (!onlineStatus) return <OfflineScreen />;
+    if (!swiggyActive) {
+        return (
+            <OfflineScreen
+                data={{
+                    imageLink: "/src/assets/images/locationUnavailable.png",
+                    msg: "Oops! Location unavailable ",
+                }}
+            />
+        );
+    }
+
+    if (!onlineStatus) {
+        return (
+            <OfflineScreen
+                data={{
+                    imageLink: "/src/assets/images/error.png",
+                    msg: "Oops! It looks like you've lost connection.",
+                }}
+            />
+        );
+    }
 
     return listOfRestaurants.length === 0 ? (
         <Shimmer />

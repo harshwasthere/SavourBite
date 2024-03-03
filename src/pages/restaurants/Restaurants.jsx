@@ -21,7 +21,8 @@ export default function Restaurants() {
     const fetchData = async (coordinates) => {
         try {
             const response = await fetch(
-                `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
+                "https://cors-anywhere.herokuapp.com/" +
+                    `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
             );
             const responseJson = await response.json();
             const cards = responseJson.data.cards;

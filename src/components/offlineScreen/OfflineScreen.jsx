@@ -1,7 +1,7 @@
 import "./offlinescreen.css";
 import { useNavigate } from "react-router-dom";
 import locUnavailable from "../../assets/images/locationUnavailable.png";
-import error from "/src/assets/images/error.png";
+import error from "../../assets/images/error.png";
 
 export default function OfflineScreen(props) {
     const type = props.type;

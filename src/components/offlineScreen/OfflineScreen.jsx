@@ -1,11 +1,12 @@
 import "./offlinescreen.css";
 import { useNavigate } from "react-router-dom";
+import locUnavailable from "../../assets/images/locationUnavailable.png";
 
 export default function OfflineScreen(props) {
     const type = props.type;
     const navigate = useNavigate();
     const unavailable = {
-        imageLink: "./src/assets/images/locationUnavailable.png",
+        imageLink: locUnavailable,
         msg: "Oops! Location unavailable ",
     };
 

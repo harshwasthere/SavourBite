@@ -14,12 +14,17 @@ nav {
 .header-logo > a {
     text-decoration: none;
     color: var(--green-lighter);
-    font-family: "virgil";
+    font-family: "Virgil", "Special Elite", "Inter", sans-serif;
     font-size: 2rem;
 }
 
 .header-menu {
     margin: 0rem 0.5rem;
+}
+
+.header-menu a.active {
+    background-color: var(--background-mint);
+    color: black;
 }
 
 .header-menu > ul {

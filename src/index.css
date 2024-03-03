@@ -1,5 +1,6 @@
 :root {
     --green-lighter: #e3fcbf;
+    --green-mid: #c5f1c0;
     --green-light: #b8f1b0;
     --green-dark: #00ffab;
     --green-darker: #14c38e;
@@ -32,8 +33,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-    font-family: "untitled-sans", sans-serif;
+    font-family: "untitled-sans", "Inter", sans-serif;
     margin: 0%;
     padding: 0%;
 }
@@ -41,6 +41,23 @@
 .app {
     height: 100%;
     width: 100%;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: var(--green-light);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-dark);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-darker);
 }
 
 /* 

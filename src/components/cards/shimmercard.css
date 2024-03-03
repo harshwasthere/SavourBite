@@ -6,14 +6,14 @@
     margin: 0.5rem;
     height: 100%;
     max-height: 24.2rem;
-    color: var(--green-light);
+    color: var(--green-mid);
     background-color: var(--grey-normal);
     border-radius: 8px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .shimmer-img {
-    background-color: var(--green-light);
+    background-color: var(--green-mid);
     width: 100%;
     max-width: 19rem;
     height: 13rem;
@@ -31,12 +31,12 @@
 }
 
 .shimmer-name {
-    background-color: var(--green-light);
+    background-color: var(--green-mid);
     height: 1.2rem;
 }
 
 .shimmer-details > .shimmer-cuisine {
-    background-color: var(--green-light);
+    background-color: var(--green-mid);
     height: 0.92rem;
     font-size: small;
 }
@@ -52,7 +52,7 @@
 .shimmer-rating {
     width: 2.077rem;
     height: 0.92rem;
-    background-color: var(--green-light);
+    background-color: var(--green-mid);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     display: flex;
@@ -60,7 +60,7 @@
 }
 
 .shimmer-delivery-time {
-    background-color: var(--green-light);
+    background-color: var(--green-mid);
     height: 0.92rem;
     width: 2.077rem;
     border-radius: 4px;

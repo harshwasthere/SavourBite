@@ -2,6 +2,7 @@ import React from "react";
 import { Code2Icon, Github, MapPin } from "lucide-react";
 import "./about.css";
 import AboutShimmer from "../../components/shimmer/AboutShimmer";
+import { Link } from "react-router-dom";
 
 class About extends React.Component {
     constructor(props) {
@@ -16,7 +17,6 @@ class About extends React.Component {
         try {
             const response = await fetch("https://api.github.com/users/harsh12codes");
             const json = await response.json();
-            console.log(json);
 
             this.setState({
                 data: json,
@@ -55,14 +55,22 @@ class About extends React.Component {
                             </div>
 
                             <div className="about-me-links">
-                                <button className="btn">
+                                <Link
+                                    to={"https://github.com/Harsh12Codes"}
+                                    target="_blank"
+                                    className="btn"
+                                >
                                     <Github size={"1rem"} />
                                     Harsh12Codes
-                                </button>
-                                <button className="btn">
+                                </Link>
+                                <Link
+                                    to={"https://github.com/Harsh12Codes/SavourBite"}
+                                    target="_blank"
+                                    className="btn"
+                                >
                                     <Code2Icon size={"1rem"} />
                                     SavourBite
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

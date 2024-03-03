@@ -7,6 +7,7 @@ import RestaurantShimmer from "../../components/shimmer/RestaurantShimmer";
 import MenuFooter from "../../components/menu-footer/MenuFooter";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 import OfflineScreen from "../../components/offlineScreen/OfflineScreen";
+import { Toaster } from "sonner";
 
 const RestaurantMenu = () => {
     const onlineStatus = useOnlineStatus();
@@ -63,6 +64,7 @@ const RestaurantMenu = () => {
 
     return (
         <div className="restaurant-menu">
+            <Toaster richColors position="bottom-right" expand={true} />
             <div className="restaurant-subpage">
                 <div className="restaurant-subpage-header">
                     <MenuHeader data={headerData} />

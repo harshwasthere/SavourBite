@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./itemaddbutton.css";
 import { addItem, removeItem } from "../../redux/cartSlice";
+import { toast } from "sonner";
 
 export default function ItemAddButton(props) {
     const { restaurantId, itemData, restaurantData } = props;
@@ -18,31 +19,34 @@ export default function ItemAddButton(props) {
     const handleAddItem = (restaurantId, itemId, itemData, restaurantData, itemPrice) => {
         if (resId === null || resId === restaurantId) {
             dispatch(addItem({ restaurantId, itemId, itemData, restaurantData, itemPrice }));
+            toast.success("Item added in your cart.");
         } else {
-            console.log("you are trying to add item of other restaurant");
+            toast.error("Your cart contains items from other restaurant.");
             return;
         }
-        console.log(resId, items);
     };
 
     const handleRemoveItem = (restaurantId, itemId, itemPrice) => {
-        console.log("resid : " + resId + " restaurantId : " + restaurantId);
         if (resId === null || resId === restaurantId) {
             dispatch(removeItem({ restaurantId, itemId, itemPrice }));
+            toast.success("Item added in your cart.");
         } else {
-            console.log("you are trying to remove item of other restaurant");
+            toast.error("Your cart contains items from other restaurant.");
             return;
         }
-        console.log(resId, items);
     };
 
     return !itemExists ? (
-        <button
-            className="add-btn add-btn-size"
-            onClick={() => handleAddItem(restaurantId, itemId, itemData, restaurantData, itemPrice)}
-        >
-            ADD
-        </button>
+        <>
+            <button
+                className="add-btn add-btn-size"
+                onClick={() =>
+                    handleAddItem(restaurantId, itemId, itemData, restaurantData, itemPrice)
+                }
+            >
+                ADD
+            </button>
+        </>
     ) : (
         <div className="add-btn add-btn-size add-btn-space">
             <span

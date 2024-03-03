@@ -23,11 +23,9 @@ const RestaurantMenu = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(
-                `https://api.allorigins.win/get?url=${encodeURIComponent(
-                    `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.8947446&lng=75.8301169&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`,
-                )}`,
-            );
+            const url = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.8947446&lng=75.8301169&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`;
+            const main_url = "https://corsproxy.org/?" + encodeURIComponent(url);
+            const response = await fetch(main_url);
             const json = await response.json();
             const data = json?.data?.cards;
             console.log(data);

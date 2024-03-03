@@ -19,14 +19,14 @@
 
 @font-face {
     font-family: "virgil";
-    src: url("./src/assets/fonts/Virgil.woff2") format("woff2");
+    src: url("/src/assets/fonts/Virgil.woff2") format("woff2");
     font-weight: normal;
     font-weight: normal;
 }
 
 @font-face {
     font-family: "untitled-sans";
-    src: url("./src/assets/fonts/Untitled Sans Regular.woff2") format("woff2");
+    src: url("/src/assets/fonts/Untitled Sans Regular.woff2") format("woff2");
     font-weight: normal;
     font-weight: normal;
 }

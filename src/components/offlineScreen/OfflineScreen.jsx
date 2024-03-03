@@ -5,7 +5,7 @@ export default function OfflineScreen(props) {
     const type = props.type;
     const navigate = useNavigate();
     const unavailable = {
-        imageLink: "/src/assets/images/locationUnavailable.png",
+        imageLink: "./src/assets/images/locationUnavailable.png",
         msg: "Oops! Location unavailable ",
     };
 

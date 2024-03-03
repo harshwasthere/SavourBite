@@ -26,7 +26,12 @@ export default function Restaurants() {
                 : `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 
             const main_url = "https://corsproxy.org/?" + encodeURIComponent(url);
-            const response = await fetch(main_url);
+            const response = await fetch(
+                "https://corsproxy.org/?" +
+                    encodeURIComponent(
+                        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6773353&lng=77.3464618&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+                    ),
+            );
             const responseJson = await response.json();
             const cards = isMobile ? responseJson.data.success.cards : responseJson.data.cards;
 

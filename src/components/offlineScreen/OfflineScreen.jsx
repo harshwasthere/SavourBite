@@ -1,6 +1,7 @@
 import "./offlinescreen.css";
 import { useNavigate } from "react-router-dom";
 import locUnavailable from "../../assets/images/locationUnavailable.png";
+import error from "/src/assets/images/error.png";
 
 export default function OfflineScreen(props) {
     const type = props.type;
@@ -11,7 +12,7 @@ export default function OfflineScreen(props) {
     };
 
     const offline = {
-        imageLink: "/src/assets/images/error.png",
+        imageLink: error,
         msg: "Oops! It looks like you've lost connection.",
     };
 

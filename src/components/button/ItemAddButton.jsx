@@ -29,7 +29,7 @@ export default function ItemAddButton(props) {
     const handleRemoveItem = (restaurantId, itemId, itemPrice) => {
         if (resId === null || resId === restaurantId) {
             dispatch(removeItem({ restaurantId, itemId, itemPrice }));
-            toast.success("Item added in your cart.");
+            toast.success("Item removed from your cart.");
         } else {
             toast.error("Your cart contains items from other restaurant.");
             return;

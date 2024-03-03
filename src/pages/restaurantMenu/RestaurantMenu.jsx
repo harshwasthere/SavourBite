@@ -28,7 +28,6 @@ const RestaurantMenu = () => {
             const response = await fetch(main_url);
             const json = await response.json();
             const data = json?.data?.cards;
-            console.log(data);
 
             const headerFinder = data.find(
                 (card) =>

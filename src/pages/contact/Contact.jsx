@@ -8,7 +8,6 @@ export default function Contact() {
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
     const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
-    console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -23,7 +22,6 @@ export default function Contact() {
                 },
                 (error) => {
                     toast.error("Message Not Sent");
-                    console.log(error);
                 },
             );
     };

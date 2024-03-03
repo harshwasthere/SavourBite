@@ -8,7 +8,6 @@ export default function Cart() {
     const items = useSelector((store) => store.cart.items);
     const resData = useSelector((store) => store.cart.restaurantData);
     const totalPrice = useSelector((store) => store.cart.totalPrice);
-    console.log(resData);
 
     if (items.length === 0) {
         return (
@@ -47,7 +46,6 @@ export default function Cart() {
                         <span className="cart-bill-title">Bill Details</span>
                         <div className="cart-bill-details">
                             {items.map((item) => {
-                                console.log(item);
                                 const itemPrice = item.itemData.defaultPrice
                                     ? item.itemData.defaultPrice / 100
                                     : item.itemData.price / 100;

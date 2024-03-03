@@ -23,9 +23,9 @@ export default function Restaurants() {
         try {
             const response = await fetch(
                 isMobile
-                    ? "https://cors-anywhere.herokuapp.com/" +
+                    ? "https://thingproxy.freeboard.io/fetch/" +
                           `https://www.swiggy.com/mapi/homepage/getCards?lat=${coordinates.latitude}&lng=${coordinates.longitude}`
-                    : "https://cors-anywhere.herokuapp.com/" +
+                    : "https://thingproxy.freeboard.io/fetch/" +
                           `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
             );
             const responseJson = await response.json();

@@ -7,6 +7,7 @@ import { useLocation } from "../../hooks/useLocation";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 import OfflineScreen from "../../components/offlineScreen/OfflineScreen";
 import useDebounce from "../../hooks/useDebounce";
+import { isMobile } from "react-device-detect";
 
 export default function Restaurants() {
     const onlineStatus = useOnlineStatus();
@@ -21,35 +22,56 @@ export default function Restaurants() {
     const fetchData = async (coordinates) => {
         try {
             const response = await fetch(
-                "https://cors-anywhere.herokuapp.com/" +
-                    `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
+                isMobile
+                    ? "https://cors-anywhere.herokuapp.com/" +
+                          `https://www.swiggy.com/mapi/homepage/getCards?lat=${coordinates.latitude}&lng=${coordinates.longitude}`
+                    : "https://cors-anywhere.herokuapp.com/" +
+                          `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`,
             );
             const responseJson = await response.json();
-            const cards = responseJson.data.cards;
+            const cards = isMobile ? responseJson.data.success.cards : responseJson.data.cards;
 
-            const locUnavailable = cards.find(
-                (card) =>
-                    card.card &&
-                    card.card.card &&
-                    card.card.card["@type"] ===
-                        "type.googleapis.com/swiggy.seo.widgets.v1.SwiggyNotPresent",
-            );
+            const locUnavailable = isMobile
+                ? cards.find(
+                      (card) =>
+                          card.gridWidget &&
+                          card.gridWidget.gridElements &&
+                          card.gridWidget.gridElements.infoWithStyle["@type"] ===
+                              "type.googleapis.com/swiggy.seo.widgets.v1.SwiggyNotPresent",
+                  )
+                : cards.find(
+                      (card) =>
+                          card.card &&
+                          card.card.card &&
+                          card.card.card["@type"] ===
+                              "type.googleapis.com/swiggy.seo.widgets.v1.SwiggyNotPresent",
+                  );
 
             if (locUnavailable !== undefined) {
                 setSwiggyActive(false);
                 return;
             }
 
-            const desiredCard = cards.find(
-                (card) =>
-                    card.card &&
-                    card.card.card &&
-                    card.card.card.gridElements &&
-                    card.card.card.gridElements.infoWithStyle &&
-                    card.card.card.gridElements.infoWithStyle["@type"] ===
-                        "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle",
-            );
-            const restaurants = desiredCard.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            const desiredCard = isMobile
+                ? cards.find(
+                      (card) =>
+                          card.gridWidget &&
+                          card.gridWidget.gridElements &&
+                          card.gridWidget.gridElements.infoWithStyle["@type"] ===
+                              "type.googleapis.com/swiggy.presentation.food.v2.RestaurantInfoWithStyle",
+                  )
+                : cards.find(
+                      (card) =>
+                          card.card &&
+                          card.card.card &&
+                          card.card.card.gridElements &&
+                          card.card.card.gridElements.infoWithStyle &&
+                          card.card.card.gridElements.infoWithStyle["@type"] ===
+                              "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle",
+                  );
+            const restaurants = isMobile
+                ? desiredCard?.gridWidget?.gridElements?.infoWithStyle?.restaurants
+                : desiredCard?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             const filteredDetails = restaurants.map((shop) => {
                 const {
                     id,

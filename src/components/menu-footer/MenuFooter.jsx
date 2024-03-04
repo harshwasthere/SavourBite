@@ -9,7 +9,7 @@ export default function MenuFooter(props) {
     return (
         <div className="menu-footer">
             <div className="menu-footer-fssai">
-                {imageId && <img src={imageLink} alt="fssai-logo" />}
+                {imageId && <img src={imageLink} alt="fssai-logo" loading="lazy" />}
                 <span>{text}</span>
             </div>
             <div className="menu-footer-breaker"></div>

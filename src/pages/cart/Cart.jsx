@@ -12,7 +12,7 @@ export default function Cart() {
     if (items.length === 0) {
         return (
             <div className="empty-cart-container">
-                <img src={CartPhoto} alt="" className="empty-cart-img" />
+                <img src={CartPhoto} alt="" className="empty-cart-img" loading="lazy"/>
                 <span className="empty-cart-main-heading">Your cart is empty</span>
                 <span className="empty-cart-sub-heading">
                     Looks like you have not added anything to your cart. Go ahead & explore items in
@@ -32,6 +32,7 @@ export default function Cart() {
                             <img
                                 src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${resData.cloudinaryImageId}`}
                                 alt=""
+                                loading="lazy"
                             />
                         </div>
                         <div className="cart-details-restaurant-subdetails">

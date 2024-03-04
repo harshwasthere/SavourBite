@@ -26,6 +26,9 @@
     font-weight: 700;
     margin-bottom: 1rem;
 }
+.empty-cart-sub-heading {
+    text-align: center;
+}
 
 .cart-title {
     display: flex;

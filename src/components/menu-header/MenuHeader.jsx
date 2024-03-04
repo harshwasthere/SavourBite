@@ -27,7 +27,7 @@ export default function MenuHeader(props) {
 
                 <div className="menu-rating">
                     <div className="menu-star">
-                        <img src={starIcon} alt="" />
+                        <img src={starIcon} alt="" loading="lazy" />
                         <span>{avgRating}</span>
                     </div>
                     <div className="menu-header-separator"> </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import AccordionItem from "../accordionItem/AccordionItem";
-import "./accordion.css";
+import AccordionItem from "../AccordionItem/AccordionItem";
+import "./Accordion.css";
 
 export default function Accordion(props) {
     const { card, index, isSubCard, restaurantId } = props;

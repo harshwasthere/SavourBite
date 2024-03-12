@@ -1,5 +1,5 @@
-import ShimmerCard from "../cards/ShimmerCard";
-import "./shimmer.css";
+import ShimmerCard from "../Cards/ShimmerCard";
+import "./Shimmer.css";
 
 export default function Shimmer() {
     return (

@@ -1,4 +1,4 @@
-import "./menuHeader.css";
+import "./MenuHeader.css";
 import starIcon from "../../assets/images/star.svg";
 import { BadgeIndianRupeeIcon, Bike, Timer } from "lucide-react";
 

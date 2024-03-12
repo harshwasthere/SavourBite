@@ -1,4 +1,4 @@
-import "./contact.css";
+import "./Contact.css";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";

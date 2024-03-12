@@ -1,4 +1,4 @@
-import "./restaurantshimmer.css";
+import "./RestaurantShimmer.css";
 
 export default function RestaurantShimmer() {
     return (

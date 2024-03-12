@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import "./restaurantmenu.css";
-import Accordion from "../../components/accordion/Accordion";
-import MenuHeader from "../../components/menu-header/MenuHeader";
+import "./RestaurantMenu.css";
+import Accordion from "../../components/Accordion/Accordion";
+import MenuHeader from "../../components/MenuHeader/MenuHeader";
 import { useParams } from "react-router-dom";
-import RestaurantShimmer from "../../components/shimmer/RestaurantShimmer";
-import MenuFooter from "../../components/menu-footer/MenuFooter";
+import RestaurantShimmer from "../../components/Shimmer/RestaurantShimmer";
+import MenuFooter from "../../components/MenuFooter/MenuFooter";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
-import OfflineScreen from "../../components/offlineScreen/OfflineScreen";
+import OfflineScreen from "../../components/OfflineScreen/OfflineScreen";
 import { Toaster } from "sonner";
 
 const RestaurantMenu = () => {

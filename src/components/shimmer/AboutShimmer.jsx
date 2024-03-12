@@ -1,4 +1,4 @@
-import "./aboutshimmer.css";
+import "./AboutShimmer.css";
 
 export default function AboutShimmer() {
     return (

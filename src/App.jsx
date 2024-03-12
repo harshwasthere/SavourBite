@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 import Home from "./pages/home/Home.jsx";
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header.jsx";
 import Restaurants from "./pages/restaurants/Restaurants.jsx";
 import Contact from "./pages/contact/Contact.jsx";
 import About from "./pages/about/About.jsx";

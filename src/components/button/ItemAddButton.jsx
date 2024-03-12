@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./itemaddbutton.css";
+import "./ItemAddButton.css";
 import { addItem, removeItem } from "../../redux/cartSlice";
 import { toast } from "sonner";
 

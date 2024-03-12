@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import "./cart.css";
-import AccordionItem from "../../components/accordionItem/AccordionItem";
+import "./Cart.css";
+import AccordionItem from "../../components/AccordionItem/AccordionItem";
 import CartPhoto from "../../assets/images/add-to-cart.png";
 
 export default function Cart() {
@@ -12,7 +12,7 @@ export default function Cart() {
     if (items.length === 0) {
         return (
             <div className="empty-cart-container">
-                <img src={CartPhoto} alt="" className="empty-cart-img" loading="lazy"/>
+                <img src={CartPhoto} alt="" className="empty-cart-img" loading="lazy" />
                 <span className="empty-cart-main-heading">Your cart is empty</span>
                 <span className="empty-cart-sub-heading">
                     Looks like you have not added anything to your cart. Go ahead & explore items in

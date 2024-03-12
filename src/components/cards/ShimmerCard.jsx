@@ -1,4 +1,4 @@
-import "./shimmercard.css";
+import "./ShimmerCard.css";
 
 export default function ShimmerCard() {
     return (

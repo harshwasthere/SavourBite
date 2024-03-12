@@ -1,7 +1,7 @@
 import React from "react";
 import { Code2Icon, Github, MapPin } from "lucide-react";
-import "./about.css";
-import AboutShimmer from "../../components/shimmer/AboutShimmer";
+import "./About.css";
+import AboutShimmer from "../../components/Shimmer/AboutShimmer";
 import { Link } from "react-router-dom";
 
 class About extends React.Component {

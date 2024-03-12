@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./header.css";
+import "./Header.css";
 import { ChevronUpSquare, MenuSquare } from "lucide-react";
 import { NavLink } from "react-router-dom";
 

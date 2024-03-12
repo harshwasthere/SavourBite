@@ -1,4 +1,4 @@
-import "./squarecard.css";
+import "./SquareCard.css";
 import starIcon from "../../assets/images/star.svg";
 
 export default function SquareCard(props) {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./restaurants.css";
-import SquareCard from "../../components/cards/SquareCard";
-import Shimmer from "../../components/shimmer/Shimmer";
+import "./Restaurants.css";
+import SquareCard from "../../components/Cards/SquareCard";
+import Shimmer from "../../components/Shimmer/Shimmer";
 import { Link } from "react-router-dom";
 import { useLocation } from "../../hooks/useLocation";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
-import OfflineScreen from "../../components/offlineScreen/OfflineScreen";
+import OfflineScreen from "../../components/OfflineScreen/OfflineScreen";
 import useDebounce from "../../hooks/useDebounce";
 import { isMobile } from "react-device-detect";
 

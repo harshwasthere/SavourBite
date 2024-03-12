@@ -1,5 +1,5 @@
 import { MapPin } from "lucide-react";
-import "./menufooter.css";
+import "./MenuFooter.css";
 
 export default function MenuFooter(props) {
     const { imageId, text, name, area, completeAddress } = props.data;

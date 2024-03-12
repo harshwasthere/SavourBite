@@ -1,4 +1,4 @@
-import "./offlinescreen.css";
+import "./OfflineScreen.css";
 import { useNavigate } from "react-router-dom";
 import locUnavailable from "../../assets/images/locationUnavailable.png";
 import error from "../../assets/images/error.png";

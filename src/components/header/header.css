@@ -4,7 +4,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: "untitled-sans";
+    font-family: "Inter";
 }
 
 .header-logo {
@@ -14,7 +14,7 @@ nav {
 .header-logo > a {
     text-decoration: none;
     color: var(--green-lighter);
-    font-family: "Virgil", "Special Elite", "Inter", sans-serif;
+    font-family: "Roboto Slab", "Inter", sans-serif;
     font-size: 2rem;
 }
 

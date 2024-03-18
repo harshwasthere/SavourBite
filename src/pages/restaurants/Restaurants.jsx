@@ -25,7 +25,7 @@ export default function Restaurants() {
                 ? `https://www.swiggy.com/mapi/homepage/getCards?lat=${coordinates.latitude}&lng=${coordinates.longitude}`
                 : `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 
-            const main_url = "https://corsproxy.org/?" + encodeURIComponent(url);
+            const main_url = "https://thingproxy.freeboard.io/fetch/" + url;
             const response = await fetch(main_url);
             const responseJson = await response.json();
             const cards = isMobile ? responseJson.data.success.cards : responseJson.data.cards;

@@ -1,10 +1,10 @@
 nav {
     width: 100%;
-    background-color: var(--color-darker);
+    background-color: var(--primary-foreground);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: "Inter";
+    border-bottom: 1px solid var(--border);
 }
 
 .header-logo {
@@ -13,8 +13,8 @@ nav {
 
 .header-logo > a {
     text-decoration: none;
-    color: var(--green-lighter);
-    font-family: "Roboto Slab", "Inter", sans-serif;
+    color: var(--primary);
+    font-family: "Montserrat", "Inter", sans-serif;
     font-size: 2rem;
 }
 
@@ -23,8 +23,8 @@ nav {
 }
 
 .header-menu a.active {
-    background-color: var(--background-mint);
-    color: black;
+    color: var(--secondary-foreground);
+    font-weight: 600;
 }
 
 .header-menu > ul {
@@ -36,7 +36,7 @@ nav {
 }
 
 .header-menu > ul > li > a {
-    color: var(--green-lighter);
+    color: var(--muted-foreground);
     text-decoration: none;
     display: block;
     padding: 0.5rem;
@@ -45,7 +45,8 @@ nav {
 }
 
 .header-menu > ul > li > a:not(.active):hover {
-    background-color: var(--color-dark);
+    color: var(--secondary-foreground);
+    opacity: 100%;
 }
 
 .header-hamburger {
@@ -58,7 +59,7 @@ nav {
 .icon-size {
     height: 2rem;
     width: 2rem;
-    color: var(--green-lighter);
+    color: var(--primary);
 }
 
 @media only screen and (max-width: 600px) {

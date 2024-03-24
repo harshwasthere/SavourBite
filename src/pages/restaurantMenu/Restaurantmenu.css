@@ -1,6 +1,6 @@
 .restaurant-menu {
     width: 100%;
-    background-color: var(--green-lighter);
+    background-color: var(--background);
 }
 
 .restaurant-subpage {
@@ -24,12 +24,12 @@
 }
 
 .menu-heading-title {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .menu-separator {
     height: 1rem;
-    border-bottom: 1rem solid var(--color-lighter);
+    border-bottom: 1rem solid var(--silver);
 }
 
 .menu-main-title {

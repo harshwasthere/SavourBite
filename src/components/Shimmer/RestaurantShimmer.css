@@ -1,6 +1,6 @@
 .restaurant-shimmer-container {
     width: 100%;
-    background-color: var(--green-lighter);
+    background-color: var(--background);
 }
 
 .restaurant-shimmer {
@@ -29,37 +29,37 @@
 .restaurant-shimmer-header-rating {
     width: 5rem;
     height: 6rem;
-    background-color: var(--color-lighter);
+    background-color: var(--platinum);
 }
 
 .restaurant-shimmer-heading1 {
     height: 1.25rem;
     width: 12.75rem;
-    background-color: var(--color-light);
+    background-color: var(--silver-3);
 }
 
 .restaurant-shimmer-heading2 {
     height: 1.25rem;
     width: 7.5rem;
-    background-color: var(--color-lighter);
+    background-color: var(--platinum);
 }
 .restaurant-shimmer-heading3 {
     height: 1.25rem;
     width: 14rem;
-    background-color: var(--color-lighter);
+    background-color: var(--platinum);
 }
 
 .restaurant-shimmer-block-big {
     height: 3rem;
     width: 25rem;
-    background-color: var(--color-light);
+    background-color: var(--silver-3);
 }
 
 .restaurant-shimmer-menu-title {
     height: 3rem;
     width: 7rem;
     margin: 1rem auto;
-    background-color: var(--color-light);
+    background-color: var(--silver-3);
 }
 
 .restaurant-shimmer-menu {

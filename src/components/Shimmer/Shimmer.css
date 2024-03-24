@@ -1,5 +1,5 @@
 .shimmer {
-    background-color: var(--green-lighter);
+    background-color: var(--background);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

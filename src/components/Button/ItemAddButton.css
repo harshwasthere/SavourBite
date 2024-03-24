@@ -1,32 +1,34 @@
 .add-btn {
     outline: none;
     border: none;
-    color: white;
-    background-color: var(--color-dark);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+    padding: 0rem 0.5rem;
+    border-radius: var(--radius);
     cursor: pointer;
 }
 .add-btn:hover {
-    background-color: var(--color-darker);
+    background-color: var(--primary);
+    opacity: 90%;
 }
 .add-btn:active {
-    background-color: var(--color-light);
+    background-color: var(--primary);
+    opacity: 90%;
 }
 
 .add-btn-size {
-    padding: 0.2rem 0.5rem !important;
+    padding: 0.6rem 1.6rem !important;
 }
 
 .add-btn-space {
     display: flex;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 0.4rem;
     align-items: center;
 }
 
 .calc-btn {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: 0.5rem 0.4rem;
 }

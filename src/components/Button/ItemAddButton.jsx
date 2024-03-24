@@ -48,7 +48,7 @@ export default function ItemAddButton(props) {
             </button>
         </>
     ) : (
-        <div className="add-btn add-btn-size add-btn-space">
+        <div className="add-btn  add-btn-space">
             <span
                 className="calc-btn"
                 onClick={() => handleRemoveItem(restaurantId, itemId, itemPrice)}

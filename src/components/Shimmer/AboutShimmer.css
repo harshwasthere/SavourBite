@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     min-height: calc(100vh - 4.5rem);
-    background-color: var(--green-lighter);
+    background-color: var(--background);
 }
 
 .about-shimmer > div {
@@ -15,13 +15,13 @@
 
 .about-title-shimmer {
     margin-top: 2rem;
-    background-color: var(--color-light);
+    background-color: var(--platinum);
     width: 14.5rem;
     height: 3rem;
 }
 
 .about-me-shimmer {
-    background-color: var(--color-lighter);
+    background-color: var(--antiflash-white);
     width: 49rem;
     height: 19rem;
 }
@@ -40,7 +40,7 @@
 .about-text-shimmer {
     height: 1.25rem;
     width: 100%;
-    background-color: var(--color-lighter);
+    background-color: var(--platinum);
 }
 
 @media only screen and (max-width: 870px) {

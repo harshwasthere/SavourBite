@@ -24,9 +24,6 @@ class About extends React.Component {
             });
         } catch (error) {
             console.error("Error fetching data:", error);
-            this.setState({
-                loading: false,
-            });
         }
     }
 
@@ -38,7 +35,7 @@ class About extends React.Component {
         ) : (
             <div className="about">
                 <div className="about-me">
-                    <span className="about-title">෴ ABOUT ME ෴</span>
+                    <span className="about-title">About Me</span>
                     <div className="about-me-body">
                         <div className="about-me-profile-photo">
                             <img src={avatar_url} alt="" loading="lazy" />
@@ -76,7 +73,7 @@ class About extends React.Component {
                     </div>
                 </div>
                 <div className="about-project">
-                    <span className="about-title">෴ ABOUT PROJECT ෴</span>
+                    <span className="about-title">About Project</span>
                     <div className="about-project-text">
                         <span>
                             SavourBite is a food-ordering website that is built on top of the Swiggy

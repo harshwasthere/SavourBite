@@ -53,7 +53,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="home-footer">Created💜@Harsh12codes</div>
+            <div className="home-footer">Created🧡@Harsh12codes</div>
         </div>
     );
 }

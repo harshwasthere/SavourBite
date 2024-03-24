@@ -1,6 +1,6 @@
 .menu-footer {
-    background-color: var(--color-lighter);
-    color: var(--color-light);
+    background-color: var(--silver);
+    color: var(--primary-light);
     padding: 1rem;
     font-size: small;
 }
@@ -23,7 +23,7 @@
 }
 
 .menu-footer-breaker {
-    border-bottom: 0.5px solid var(--color-lighter);
+    border-bottom: 0.5px solid var(--silver);
     width: 100%;
     margin: 0 auto;
 }

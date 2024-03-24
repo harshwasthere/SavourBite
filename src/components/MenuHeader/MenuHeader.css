@@ -11,13 +11,14 @@
 }
 
 .menu-name {
-    font-weight: bold;
+    font-weight: 600;
+    font-size: large;
 }
 
 .menu-subdetails {
     margin-top: 0.2rem;
     font-size: small;
-    color: var(--color-lighter);
+    color: var(--muted-foreground);
 }
 
 .menu-header-details {
@@ -28,8 +29,8 @@
 
 .menu-rating {
     padding: 0.5rem;
-    border: 1px solid var(--color-lighter);
-    box-shadow: 0 1px 5px var(--color-lighter);
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 5px var(--border);
     border-radius: 6px;
     text-align: center;
 }
@@ -47,7 +48,7 @@
 }
 
 .menu-header-separator {
-    border-bottom: 0.5px solid var(--color-lighter);
+    border-bottom: 0.5px solid var(--silver);
     width: 95%;
     margin: 0.2rem auto;
 }
@@ -60,7 +61,7 @@
     display: flex;
     justify-content: start;
     gap: 0.5rem;
-    color: var(--color-lighter);
+    color: var(--muted-foreground);
     margin: 1rem 0rem;
 }
 
@@ -70,7 +71,7 @@
 
 hr {
     border: none;
-    border-bottom: 1px dashed #d3d3d3;
+    border-bottom: 1px dashed var(--silver);
     margin-bottom: 1rem;
 }
 
@@ -83,7 +84,7 @@ hr {
 .menu-header-bottom-item {
     display: flex;
     align-items: center;
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 1rem;
 }
 .menu-header-bottom-item > span {

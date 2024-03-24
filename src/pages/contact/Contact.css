@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     min-height: calc(100vh - 4.5rem);
-    background-color: var(--green-lighter);
+    background-color: var(--background);
 }
 
 .contact-title {
@@ -22,7 +22,6 @@
 }
 
 .contact-form {
-    background-color: var(--green-light);
     padding: 3.5rem 2rem;
     padding-top: 2rem;
     border-radius: 8px;
@@ -41,8 +40,8 @@
     gap: 0.5rem;
     outline: none;
     border: none;
-    color: white;
-    background-color: var(--color-dark);
+    color: var(--primary-foreground);
+    background-color: var(--primary);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
@@ -50,20 +49,21 @@
 }
 
 .contact-btn:hover {
-    background-color: var(--color-darker);
+    background-color: var(--primary);
+    opacity: 90%;
 }
 
 .contact-btn:active {
-    background-color: var(--color-light);
+    background-color: var(--primary);
 }
 
 .contact-form > input,
 textarea {
-    background-color: var(--black-light);
+    background-color: var(--antiflash-white);
     resize: none;
     width: 100%;
     min-width: 100%;
-    border: 2px solid var(--black-light);
+    border: 2px solid var(--antiflash-white);
     outline: none;
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -77,7 +77,7 @@ textarea {
 
 .contact-form > input:focus,
 textarea:focus {
-    border: 2px solid var(--color-lighter);
+    border: 2px solid var(--platinum);
 }
 
 .contact-text {
@@ -90,12 +90,12 @@ textarea:focus {
 }
 
 .contact-text-heading {
-    font-family: "Roboto Slab", "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: xx-large;
     font-weight: bold;
 }
 
 .contact-text-subheading {
+    color: var(--primary-light);
     font-size: small;
-    opacity: 60%;
 }

@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 import AccordionItem from "../../components/AccordionItem/AccordionItem";
 import CartPhoto from "../../assets/images/add-to-cart.png";
 
 export default function Cart() {
+    const navigate = useNavigate();
     const resId = useSelector((store) => store.cart.restaurantId);
     const items = useSelector((store) => store.cart.items);
     const resData = useSelector((store) => store.cart.restaurantData);
@@ -18,13 +20,16 @@ export default function Cart() {
                     Looks like you have not added anything to your cart. Go ahead & explore items in
                     menu.
                 </span>
+                <button onClick={() => navigate("/home/restaurant")} className="offline-screen-btn">
+                    Add items
+                </button>
             </div>
         );
     }
 
     return (
         <div className="cart-container">
-            <span className="cart-title">෴ YOUR CART ෴</span>
+            <span className="cart-title">Your Cart</span>
             <div className="cart">
                 <div className="cart-details">
                     <div className="cart-details-restaurant">
@@ -102,7 +107,7 @@ export default function Cart() {
                                     restaurantId={resId}
                                 />
                                 {items.length - 1 !== index && (
-                                    <div className="cart-item-breaker"></div>
+                                    <div className="cart-item-separator"></div>
                                 )}
                             </div>
                         );

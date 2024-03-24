@@ -173,7 +173,7 @@ export default function Restaurants() {
                     <button className="search-btn filters-search-size">Search</button>
                 </div>
                 <div className="filters-items">
-                    <button className="filter-btn reset" onClick={handleAllRestaurant}>
+                    <button className="reset" onClick={handleAllRestaurant}>
                         Reset
                     </button>
                     <button className="filter-btn" onClick={handleFastDelivery}>

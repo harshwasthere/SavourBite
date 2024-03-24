@@ -1,7 +1,7 @@
 .home {
     height: 100vh;
     width: 100vw;
-    background-color: var(--background-mint);
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,8 +9,9 @@
 }
 
 .home-logo {
-    font-family: "Roboto Slab", "Inter", sans-serif;
+    font-family: "Montserrat", "Inter", sans-serif;
     font-size: 3rem;
+    font-weight: 500;
     margin: 1rem 0rem;
 }
 
@@ -29,7 +30,7 @@
 }
 
 .home-text {
-    color: var(--color-light);
+    color: var(--primary);
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -41,10 +42,11 @@
 
 .home-text > span:first-child {
     font-size: 2rem;
+    font-weight: 500;
 }
 
 .home-text > span > span {
-    color: blueviolet;
+    color: var(--orange);
 }
 
 .primary-btn {
@@ -54,30 +56,28 @@
     outline: none;
     border: none;
     color: white;
-    background-color: var(--color-dark);
+    background-color: var(--primary);
     padding: 0.5rem 1rem;
-    border-radius: 8px;
+    border-radius: var(--radius);
     cursor: pointer;
 }
 
 .primary-btn:hover {
-    background-color: var(--color-darker);
+    background-color: var(--primary);
+    opacity: 90%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .primary-btn:active {
-    background-color: var(--color-light);
+    background-color: var(--primary);
 }
 
 .primary-search > label > input {
     outline: none;
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 8px;
+    border-radius: var(--radius);
     margin-right: 0.2rem;
-}
-
-.primary-search > label > input:active {
-    outline: 1px solid var(--color-light);
 }
 
 .search-size {
@@ -106,16 +106,19 @@
 }
 
 .location-btn {
-    background-color: #892be2b2;
-    color: black;
+    background-color: var(--orange);
+    color: var(--primary);
+    box-shadow: rgba(165, 161, 149, 0.2) 0px 8px 24px;
+
 }
 
 .location-btn:hover {
-    background-color: rgba(137, 43, 226, 0.782);
+    background-color: var(--orange);
+    opacity: 90%;
 }
 
 .location-btn:active {
-    background-color: blueviolet;
+    background-color: var(--orange);
 }
 
 /* ----------------------- MEDIA QUERIES FOR RESPONSIVENESS -----------------*/

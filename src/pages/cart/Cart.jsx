@@ -20,7 +20,7 @@ export default function Cart() {
                     Looks like you have not added anything to your cart. Go ahead & explore items in
                     menu.
                 </span>
-                <button onClick={() => navigate("/home/restaurant")} className="offline-screen-btn">
+                <button onClick={() => navigate("/restaurant")} className="offline-screen-btn">
                     Add items
                 </button>
             </div>

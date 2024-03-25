@@ -2,7 +2,7 @@ import "./Home.css";
 import homeIllustration from "../../assets/images/home-illustration.png";
 import { LocateFixed, LocateOffIcon } from "lucide-react";
 import { useLocation } from "../../hooks/useLocation";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
     const { fetchCurrentLocation, addDemoCoordinate } = useLocation();
@@ -28,7 +28,7 @@ export default function Home() {
                         <button
                             onClick={async () => {
                                 await fetchCurrentLocation();
-                                navigate("/home/restaurant");
+                                navigate("/restaurant");
                             }}
                             className="primary-btn location-btn search-size"
                         >
@@ -39,7 +39,7 @@ export default function Home() {
                         <button
                             onClick={async () => {
                                 await addDemoCoordinate();
-                                navigate("/home/restaurant");
+                                navigate("/restaurant");
                             }}
                             className="primary-btn search-size"
                         >
@@ -53,7 +53,11 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="home-footer">Created🧡@Harsh12codes</div>
+            <div className="home-footer">
+                <Link to={"https://github.com/Harsh12Codes"} target="_blank">
+                    Created🧡@Harsh12codes
+                </Link>
+            </div>
         </div>
     );
 }

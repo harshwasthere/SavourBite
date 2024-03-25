@@ -95,6 +95,10 @@
     font-family: "Inter";
     margin: 1rem 0rem;
 }
+.home-footer > a {
+    color: var(--primary);
+    text-decoration: none;
+}
 
 .btn-container {
     display: flex;
@@ -109,7 +113,6 @@
     background-color: var(--orange);
     color: var(--primary);
     box-shadow: rgba(165, 161, 149, 0.2) 0px 8px 24px;
-
 }
 
 .location-btn:hover {

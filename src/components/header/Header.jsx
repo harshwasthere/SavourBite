@@ -25,22 +25,22 @@ export default function Header() {
             <div className={`header-menu ${isMenuOpen ? "open" : ""}`}>
                 <ul>
                     <li>
-                        <NavLink to="/home/restaurant" onClick={toggleMenu}>
+                        <NavLink to="/restaurant" onClick={toggleMenu}>
                             Restaurants
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/home/contact" onClick={toggleMenu}>
+                        <NavLink to="/contact" onClick={toggleMenu}>
                             Contact
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/home/about" onClick={toggleMenu}>
+                        <NavLink to="/about" onClick={toggleMenu}>
                             About
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/home/cart" onClick={toggleMenu}>
+                        <NavLink to="/cart" onClick={toggleMenu}>
                             Cart
                         </NavLink>
                     </li>

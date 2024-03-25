@@ -19,16 +19,12 @@
 }
 
 .menu-heading {
-    margin: 1rem 0.4rem;
-    margin-bottom: 1.5rem;
+    margin: 0.5rem 0.4rem;
+    margin-bottom: 0.7rem;
 }
 
 .menu-heading-title {
     font-weight: 600;
-}
-
-.menu-separator {
-    height: 1rem;
 }
 
 .menu-main-title {

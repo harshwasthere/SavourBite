@@ -31,8 +31,7 @@
 }
 
 .accordion-separator {
-    height: 1rem;
-    border-bottom: 1rem solid var(--silver);
+    height: 0.5rem;
 }
 
 .sub-separator {

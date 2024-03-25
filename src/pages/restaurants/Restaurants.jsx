@@ -129,22 +129,22 @@ export default function Restaurants() {
     };
 
     const handleFastDelivery = () => {
-        const fastDeliveryOutput = listOfRestaurants.filter((res) => res.deliveryTime < 30);
+        const fastDeliveryOutput = filteredList.filter((res) => res.deliveryTime < 30);
         setFilteredList(fastDeliveryOutput);
     };
 
     const handleVeg = () => {
-        const vegOutput = listOfRestaurants.filter((res) => res.veg === true);
+        const vegOutput = filteredList.filter((res) => res.veg === true);
         setFilteredList(vegOutput);
     };
 
     const handleRating = () => {
-        const ratingOutput = listOfRestaurants.filter((res) => Number(res.avgRatingString) > 4.2);
+        const ratingOutput = filteredList.filter((res) => Number(res.avgRatingString) > 4.2);
         setFilteredList(ratingOutput);
     };
 
     const handleRange = (rangeKey) => {
-        const rangeOutput = listOfRestaurants.filter((res) => {
+        const rangeOutput = filteredList.filter((res) => {
             const cost = res.costForTwo.match(/\d+/g).map(Number)[0];
             if (rangeKey === 1) return cost >= 300 && cost <= 600;
             else if (rangeKey === 2) return cost < 300;

@@ -25,7 +25,6 @@
     flex-direction: column;
     max-width: 32rem;
     gap: 2rem;
-    align-items: center;
     margin: 2rem 3rem;
 }
 
@@ -142,6 +141,10 @@
 
     .home-illustration > img {
         margin-right: 0rem;
+    }
+
+    .home-details {
+        align-items: center;
     }
 }
 

@@ -8,6 +8,7 @@ import useOnlineStatus from "../../hooks/useOnlineStatus";
 import ErrorScreen from "../../components/ErrorScreen/ErrorScreen";
 import useDebounce from "../../hooks/useDebounce";
 import { isMobile } from "react-device-detect";
+import noResult from "../../assets/images/no-result.png";
 
 export default function Restaurants() {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function Restaurants() {
                 ? `https://www.swiggy.com/mapi/homepage/getCards?lat=${coordinates.latitude}&lng=${coordinates.longitude}`
                 : `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${coordinates.latitude}&lng=${coordinates.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 
-            const main_url = url;
+            const main_url = "https://thingproxy-760k.onrender.com/fetch/" + url;
             const response = await fetch(main_url);
             const responseJson = await response.json();
             const cards = isMobile ? responseJson.data.success.cards : responseJson.data.cards;
@@ -200,11 +201,20 @@ export default function Restaurants() {
                 </div>
             </div>
             <div className="res-cards">
-                {filteredList.map((res) => (
-                    <Link key={res.id} to={`/restaurant/${res.id}`}>
-                        <SquareCard key={res.id} restaurantCardData={res} />
-                    </Link>
-                ))}
+                {filteredList.length === 0 ? (
+                    <div className="no-match">
+                        <img className="no-match-img" src={noResult} alt="" />
+                        <span className="no-match-title">No result found</span>
+                    </div>
+                ) : (
+                    <>
+                        {filteredList.map((res) => (
+                            <Link key={res.id} to={`/restaurant/${res.id}`}>
+                                <SquareCard key={res.id} restaurantCardData={res} />
+                            </Link>
+                        ))}
+                    </>
+                )}
             </div>
         </div>
     );

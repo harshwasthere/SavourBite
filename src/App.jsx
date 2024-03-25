@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet, redirect, Navigate } from "react-router-dom";
-
+import { BrowserRouter, Routes, Route, Outlet, Navigate } from "react-router-dom";
 import Home from "./pages/home/Home.jsx";
 import Header from "./components/Header/Header.jsx";
 import Restaurants from "./pages/restaurants/Restaurants.jsx";
@@ -9,9 +8,11 @@ import Cart from "./pages/cart/Cart.jsx";
 import RestaurantMenu from "./pages/restaurantMenu/RestaurantMenu.jsx";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorScreen from "./components/ErrorScreen/ErrorScreen.jsx";
+import ScrollToTop from "./utils/ScrollToTop.jsx";
 
 const App = () => (
     <BrowserRouter>
+        <ScrollToTop />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route
@@ -20,6 +21,7 @@ const App = () => (
                     <ErrorBoundary fallback={<ErrorScreen type={"error"} />}>
                         <div className="app">
                             <Header />
+                            <div className="extra-space"></div>
                             <Outlet />
                         </div>
                     </ErrorBoundary>

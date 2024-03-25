@@ -1,4 +1,6 @@
 nav {
+    z-index: 999;
+    position: fixed;
     width: 100%;
     background-color: var(--primary-foreground);
     display: flex;

@@ -44,6 +44,10 @@
     width: 100%;
 }
 
+.extra-space {
+    height: 4.5rem;
+}
+
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
     width: 12px;

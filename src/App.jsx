@@ -31,6 +31,7 @@ const App = () => (
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
             </Route>
+            <Route path="*" element={<Home />} />
         </Routes>
     </BrowserRouter>
 );

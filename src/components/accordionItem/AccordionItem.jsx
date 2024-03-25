@@ -17,7 +17,6 @@ export default function AccordionItem(props) {
                     <img
                         src={itemAttribute.vegClassifier === "NONVEG" ? nonVeg : veg}
                         alt={itemAttribute.vegClassifier === "NONVEG" ? "non-veg-food" : "veg-food"}
-                        loading="lazy"
                     />
                 </div>
                 <div className="acc-subdetails">
@@ -32,7 +31,7 @@ export default function AccordionItem(props) {
             </div>
             <div className="accordionItem-photo">
                 <div className="acc-item-photo">
-                    {imageLink && <img src={imageLink} alt="restaurant-photo" loading="lazy" />}
+                    {imageLink && <img src={imageLink} alt="restaurant-photo"  />}
                     <div className="add-btn-container">
                         <ItemAddButton
                             restaurantId={restaurantId}

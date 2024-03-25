@@ -22,7 +22,7 @@ export default function OfflineScreen(props) {
                 className="offline-screen-image"
                 src={type === "offline" ? offline.imageLink : unavailable.imageLink}
                 alt="ERROR_404"
-                loading="lazy"
+                
             />
             <span className="offline-screen-msg">
                 {type === "offline" ? offline.msg : unavailable.msg}

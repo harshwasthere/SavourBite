@@ -38,7 +38,7 @@ class About extends React.Component {
                     <span className="about-title">About Me</span>
                     <div className="about-me-body">
                         <div className="about-me-profile-photo">
-                            <img src={avatar_url} alt="" loading="lazy" />
+                            <img src={avatar_url} alt=""  />
                         </div>
                         <div className="about-me-details">
                             <div className="about-me-sub-details">

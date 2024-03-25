@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Restaurants.css";
 import SquareCard from "../../components/Cards/SquareCard";
 import Shimmer from "../../components/Shimmer/Shimmer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "../../hooks/useLocation";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 import OfflineScreen from "../../components/OfflineScreen/OfflineScreen";
@@ -10,6 +10,8 @@ import useDebounce from "../../hooks/useDebounce";
 import { isMobile } from "react-device-detect";
 
 export default function Restaurants() {
+    const navigate = useNavigate();
+
     const onlineStatus = useOnlineStatus();
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
@@ -18,6 +20,10 @@ export default function Restaurants() {
     const { currentLocation } = useLocation();
     const [initalRender, setInitialRender] = useState(true);
     const debounceValue = useDebounce(searchRestaurant, 1000);
+
+    if (currentLocation === null) {
+        navigate("/");
+    }
 
     const fetchData = async (coordinates) => {
         try {

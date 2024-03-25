@@ -21,11 +21,11 @@ const App = () => (
                     </div>
                 }
             >
-                <Route path="restaurant" element={<Restaurants />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="about" element={<About />} />
-                <Route path="cart" element={<Cart />} />
-                <Route path="restaurant/:resId" element={<RestaurantMenu />} />
+                <Route path="/restaurant" element={<Restaurants />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
             </Route>
         </Routes>
     </BrowserRouter>

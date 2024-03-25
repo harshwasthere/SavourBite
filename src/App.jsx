@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, redirect, Navigate } from "react-router-dom";
 
 import Home from "./pages/home/Home.jsx";
 import Header from "./components/Header/Header.jsx";
@@ -31,7 +31,7 @@ const App = () => (
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
             </Route>
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     </BrowserRouter>
 );

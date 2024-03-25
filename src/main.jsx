@@ -5,13 +5,16 @@ import App from "./App";
 import { LocationProvider } from "./context/LocationProvider";
 import { Provider } from "react-redux";
 import webStore from "./redux/webStore";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <Provider store={webStore}>
-            <LocationProvider>
-                <App />
-            </LocationProvider>
-        </Provider>
+        <BrowserRouter>
+            <Provider store={webStore}>
+                <LocationProvider>
+                    <App />
+                </LocationProvider>
+            </Provider>
+        </BrowserRouter>
     </React.StrictMode>,
 );

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import RestaurantShimmer from "../../components/Shimmer/RestaurantShimmer";
 import MenuFooter from "../../components/MenuFooter/MenuFooter";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
-import OfflineScreen from "../../components/OfflineScreen/OfflineScreen";
+import ErrorScreen from "../../components/ErrorScreen/ErrorScreen";
 import { Toaster } from "sonner";
 
 const RestaurantMenu = () => {
@@ -55,7 +55,7 @@ const RestaurantMenu = () => {
         }
     };
 
-    if (!onlineStatus) return <OfflineScreen />;
+    if (!onlineStatus) return <ErrorScreen />;
 
     if (loading) {
         return <RestaurantShimmer />;

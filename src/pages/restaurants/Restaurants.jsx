@@ -5,7 +5,7 @@ import Shimmer from "../../components/Shimmer/Shimmer";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "../../hooks/useLocation";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
-import OfflineScreen from "../../components/OfflineScreen/OfflineScreen";
+import ErrorScreen from "../../components/ErrorScreen/ErrorScreen";
 import useDebounce from "../../hooks/useDebounce";
 import { isMobile } from "react-device-detect";
 
@@ -156,10 +156,10 @@ export default function Restaurants() {
     };
 
     if (!swiggyActive) {
-        return <OfflineScreen type={"unavailable"} />;
+        return <ErrorScreen type={"unavailable"} />;
     }
     if (!onlineStatus) {
-        return <OfflineScreen type={"offline"} />;
+        return <ErrorScreen type={"offline"} />;
     }
     return listOfRestaurants.length === 0 ? (
         <Shimmer />

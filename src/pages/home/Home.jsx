@@ -1,4 +1,4 @@
-import ".css";
+import "./Home.css";
 import homeIllustration from "../../assets/images/home-illustration.png";
 import { LocateFixed, LocateOffIcon } from "lucide-react";
 import { useLocation } from "../../hooks/useLocation";
@@ -49,7 +49,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="home-illustration">
-                    <img src={homeIllustration} alt="" />
+                    <img src={homeIllustration} alt="" loading="lazy" />
                 </div>
             </div>
 

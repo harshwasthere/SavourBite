@@ -7,6 +7,8 @@ import Contact from "./pages/contact/Contact.jsx";
 import About from "./pages/about/About.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import RestaurantMenu from "./pages/restaurantMenu/RestaurantMenu.jsx";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorScreen from "./components/ErrorScreen/ErrorScreen.jsx";
 
 const App = () => (
     <BrowserRouter>
@@ -15,10 +17,12 @@ const App = () => (
             <Route
                 path="/"
                 element={
-                    <div className="app">
-                        <Header />
-                        <Outlet />
-                    </div>
+                    <ErrorBoundary fallback={<ErrorScreen type={"error"} />}>
+                        <div className="app">
+                            <Header />
+                            <Outlet />
+                        </div>
+                    </ErrorBoundary>
                 }
             >
                 <Route path="/restaurant" element={<Restaurants />} />

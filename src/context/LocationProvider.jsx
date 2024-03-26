@@ -24,8 +24,8 @@ export const LocationProvider = ({ children }) => {
 
     const addDemoCoordinate = () => {
         setCurrentLocation({
-            latitude: 25.3407388,
-            longitude: 74.63131829999999,
+            latitude: 26.8947446,
+            longitude: 75.8301169,
         });
         return Promise.resolve();
     };

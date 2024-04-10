@@ -49,6 +49,7 @@ https://github.com/Harsh12Codes/SavourBite/assets/83909388/7428a0cb-ce56-4849-a0
      VITE_TEMPLATE_ID=your_template_id
      VITE_PUBLIC_KEY=your_public_key
      ```
+   - `SERVICE_ID` , `TEMPLATE_ID` , `PUBLIC_KEY` can be obtained from Email.js , setup your template accordingly. 
 
 4. **Install Dependencies:**
    - Run the following command to install project dependencies:
